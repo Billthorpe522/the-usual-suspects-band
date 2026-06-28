@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Usual Suspects — Video Bumper</title>
+<style>
+  :root { --bg: #000; --ink: #fff; --stroke: 3.5; }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  .stage {
+    width: min(100vw, 100vh, 720px);
+    height: min(100vw, 100vh, 720px);
+    position: relative;
+    background: #000;
+  }
+
+  /* SVG fills the stage */
+  .logo {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .logo .stroke {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: var(--stroke);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .logo .fill-white { fill: var(--ink); stroke: none; }
+
+  /* ─── MASTER TIMELINE ─────────────────────────────────────
+   * 0s    : everything invisible (opacity 0)
+   * 0–1s  : black with hint of cigarette smoke drift (subtle)
+   * 1–3s  : title scratches in, stars pop in sequentially
+   * 3–5s  : cell + bandit fade in, hat settles
+   * 5–7s  : bandana slides down, sunglasses flash for 1.2s, bandana slides back
+   * 7–9s  : motorcycle rolls in from the right
+   * 9–11s : exhaust smoke plume drifts, then exhaust pulse starts
+   * 11–13s: tagline fades up
+   * 13–15s: hold, then fade to black at 15s
+   */
+
+  .layer { opacity: 0; }
+
+  /* Layer 1: Title */
+  .layer-title { animation: titleIn 1.5s ease-out 1s forwards; }
+  @keyframes titleIn {
+    0%   { opacity: 0; transform: translateY(-12px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Layer 2: Stars */
+  .star.s1 { animation: starIn 0.5s ease-out 1.8s forwards, starSpin 9s linear 2.3s infinite; }
+  .star.s2 { animation: starIn 0.5s ease-out 2.0s forwards, starSpin 11s linear 2.5s reverse infinite; }
+  .star.s3 { animation: starIn 0.5s ease-out 2.2s forwards, starSpin 13s linear 2.7s infinite; }
+  @keyframes starIn {
+    0%   { opacity: 0; transform: scale(0); }
+    70%  { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  @keyframes starSpin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  /* Layer 3: Cell + bandit */
+  .layer-cell  { animation: fadeIn 1.0s ease-out 3.0s forwards; }
+  .layer-bandit { animation: fadeIn 1.0s ease-out 3.5s forwards; }
+  @keyframes fadeIn { to { opacity: 1; } }
+
+  /* Bandana reveal — only after cell is fully in */
+  .bandana {
+    transform-origin: 50% 60%;
+    animation: bandanaReveal 14s ease-in-out 5s infinite;
+  }
+  @keyframes bandanaReveal {
+    0%, 30%   { transform: translateY(0); }
+    38%, 46%  { transform: translateY(28px) scaleY(0.7); }
+    54%, 100% { transform: translateY(0); }
+  }
+
+  .eyes {
+    opacity: 0;
+    animation: eyesFlash 14s ease-in-out 5s infinite;
+  }
+  @keyframes eyesFlash {
+    0%, 30% { opacity: 0; }
+    40%, 44% { opacity: 1; }
+    54%, 100% { opacity: 0; }
+  }
+
+  /* Hat lift during reveal */
+  .hat {
+    transform-origin: 50% 100%;
+    animation: hatLift 14s ease-in-out 5s infinite;
+  }
+  @keyframes hatLift {
+    0%, 30% { transform: translateY(0); }
+    40%, 46% { transform: translateY(-6px); }
+    54%, 100% { transform: translateY(0); }
+  }
+
+  /* Layer 4: Motorcycle rolls in */
+  .layer-moto {
+    opacity: 0;
+    transform: translateX(620px);
+    animation: motoRoll 1.6s cubic-bezier(0.2, 0.8, 0.3, 1) 7s forwards;
+  }
+  @keyframes motoRoll {
+    0%   { opacity: 0; transform: translateX(620px); }
+    20%  { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Moto idle vibration once arrived */
+  .moto-inner {
+    transform-origin: 50% 90%;
+    animation: motoIdle 1.4s ease-in-out 8.6s infinite;
+  }
+  @keyframes motoIdle {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(0.4px, -0.5px) rotate(0.05deg); }
+    50% { transform: translate(-0.3px, 0.4px) rotate(-0.04deg); }
+    75% { transform: translate(0.3px, -0.3px) rotate(0.03deg); }
+  }
+
+  /* Exhaust pulse after arrival */
+  .exhaust {
+    transform-origin: 50% 50%;
+    animation: exhaustPulse 1.4s ease-in-out 8.6s infinite;
+  }
+  @keyframes exhaustPulse {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.04); }
+  }
+
+  /* Exhaust smoke drift */
+  .smoke { opacity: 0; animation: smokeOut 3s ease-out 10s infinite; }
+  @keyframes smokeOut {
+    0%   { opacity: 0; transform: translate(0, 0) scale(0.5); }
+    20%  { opacity: 0.5; }
+    100% { opacity: 0; transform: translate(60px, -40px) scale(2.5); }
+  }
+
+  /* Layer 5: Tagline */
+  .layer-tagline { animation: taglineIn 1.2s ease-out 11s forwards; }
+  @keyframes taglineIn {
+    0%   { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Notes float in with tagline */
+  .note-left, .note-right {
+    transform-origin: 50% 50%;
+    animation: noteFloat 4s ease-in-out 11.6s infinite;
+  }
+  .note-right { animation-delay: 13.6s; }
+  @keyframes noteFloat {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50%      { transform: translate(2px, -6px) rotate(2deg); }
+  }
+
+  /* Cell bars flex (subtle) */
+  .bar {
+    transform-origin: center;
+    animation: barFlex 4.5s ease-in-out infinite;
+  }
+  .bar.b2 { animation-delay: 0.4s; }
+  .bar.b3 { animation-delay: 0.8s; }
+  .bar.b4 { animation-delay: 1.2s; }
+  @keyframes barFlex {
+    0%, 100% { transform: scaleX(1); }
+    50%      { transform: scaleX(0.985); }
+  }
+
+  /* Final fade-to-black */
+  .stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #000;
+    opacity: 0;
+    animation: fadeOut 1.5s ease-in 13.5s forwards;
+    pointer-events: none;
+    z-index: 10;
+  }
+  @keyframes fadeOut {
+    to { opacity: 1; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .layer, .star, .moto-inner, .exhaust, .smoke, .note-left, .note-right, .bar {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    .eyes { opacity: 0 !important; }
+  }
+</style>
+</head>
+<body>
+<div class="stage">
+<svg class="logo" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- TOP TITLE -->
+  <g class="layer layer-title">
+    <text x="300" y="68" text-anchor="middle"
+          font-family="Georgia, 'Times New Roman', serif"
+          font-weight="900"
+          font-size="46"
+          letter-spacing="2"
+          fill="#fff"
+          style="font-variant: small-caps;">The Usual Suspects</text>
+    <path class="stroke" d="M 130 80 Q 170 92 200 80 Q 230 70 250 80" stroke-width="2"/>
+    <path class="stroke" d="M 350 80 Q 380 70 400 80 Q 430 92 470 80" stroke-width="2"/>
+    <circle class="fill-white" cx="120" cy="60" r="2.5"/>
+    <circle class="fill-white" cx="480" cy="60" r="2.5"/>
+  </g>
+
+  <!-- STARS -->
+  <g class="star s1" transform="translate(95 235)">
+    <path class="stroke" d="M 0 -22 L 6 -7 L 22 -5 L 9 5 L 14 22 L 0 12 L -14 22 L -9 5 L -22 -5 L -6 -7 Z" stroke-width="2.5"/>
+    <circle class="fill-white" cx="0" cy="0" r="2"/>
+  </g>
+  <g class="star s2" transform="translate(505 235)">
+    <path class="stroke" d="M 0 -18 L 5 -6 L 18 -4 L 7 4 L 11 18 L 0 10 L -11 18 L -7 4 L -18 -4 L -5 -6 Z" stroke-width="2.5"/>
+    <circle class="fill-white" cx="0" cy="0" r="1.5"/>
+  </g>
+  <g class="star s3" transform="translate(515 395)">
+    <path class="stroke" d="M 0 -14 L 4 -5 L 14 -3 L 6 3 L 9 14 L 0 8 L -9 14 L -6 3 L -14 -3 L -4 -5 Z" stroke-width="2.5"/>
+  </g>
+
+  <!-- JAIL CELL -->
+  <g class="layer layer-cell">
+    <rect class="stroke" x="155" y="175" width="290" height="195" rx="4" stroke-width="3.5"/>
+    <line class="stroke" x1="155" y1="175" x2="445" y2="175" stroke-width="3.5"/>
+    <line class="bar b1 stroke" x1="200" y1="175" x2="200" y2="370" stroke-width="3"/>
+    <line class="bar b2 stroke" x1="245" y1="175" x2="245" y2="370" stroke-width="3"/>
+    <line class="bar b3 stroke" x1="290" y1="175" x2="290" y2="370" stroke-width="3"/>
+    <line class="bar b4 stroke" x1="335" y1="175" x2="335" y2="370" stroke-width="3"/>
+    <line class="bar stroke" x1="400" y1="175" x2="400" y2="370" stroke-width="3"/>
+  </g>
+
+  <!-- THE BANDIT -->
+  <g class="layer layer-bandit">
+    <g class="hat">
+      <ellipse class="stroke" cx="300" cy="242" rx="65" ry="8" stroke-width="3"/>
+      <path class="stroke" d="M 260 242 Q 260 205 290 198 Q 320 194 340 205 Q 340 225 340 242" stroke-width="3"/>
+      <path class="stroke" d="M 268 234 Q 300 228 332 234" stroke-width="2"/>
+      <path class="stroke" d="M 263 240 L 337 240" stroke-width="2"/>
+    </g>
+
+    <path class="stroke" d="M 270 255 Q 270 290 285 300 Q 300 306 315 300 Q 330 290 330 255" stroke-width="3"/>
+
+    <g class="eyes">
+      <ellipse class="stroke" cx="287" cy="262" rx="9" ry="6" stroke-width="2.5"/>
+      <ellipse class="stroke" cx="313" cy="262" rx="9" ry="6" stroke-width="2.5"/>
+      <line class="stroke" x1="296" y1="262" x2="304" y2="262" stroke-width="2"/>
+      <line class="stroke" x1="278" y1="260" x2="270" y2="258" stroke-width="2"/>
+      <line class="stroke" x1="322" y1="260" x2="330" y2="258" stroke-width="2"/>
+      <ellipse class="fill-white" cx="285" cy="260" rx="1.2" ry="1.5" opacity="0.6"/>
+      <ellipse class="fill-white" cx="311" cy="260" rx="1.2" ry="1.5" opacity="0.6"/>
+    </g>
+
+    <g class="bandana">
+      <path class="stroke" d="M 273 270 Q 300 278 327 270 L 327 300 Q 300 310 273 300 Z" stroke-width="2.8"/>
+      <path class="stroke" d="M 280 280 Q 290 285 300 280 Q 310 285 320 280" stroke-width="1.5"/>
+      <path class="stroke" d="M 280 290 Q 290 295 300 290 Q 310 295 320 290" stroke-width="1.5"/>
+    </g>
+
+    <path class="stroke" d="M 285 306 L 285 322 Q 300 330 315 322 L 315 306" stroke-width="2.5"/>
+
+    <path class="stroke" d="M 240 370 Q 250 330 285 322 L 315 322 Q 350 330 360 370" stroke-width="3"/>
+    <path class="stroke" d="M 285 322 L 285 342 M 315 322 L 315 342" stroke-width="2"/>
+    <line class="stroke" x1="300" y1="330" x2="300" y2="370" stroke-width="2"/>
+  </g>
+
+  <!-- HANDS -->
+  <g class="layer layer-bandit">
+    <path class="stroke" d="M 195 350 Q 188 345 192 335 Q 196 330 202 332 Q 208 336 205 345" stroke-width="3"/>
+    <path class="stroke" d="M 405 350 Q 412 345 408 335 Q 404 330 398 332 Q 392 336 395 345" stroke-width="3"/>
+  </g>
+
+  <!-- MOTORCYCLE -->
+  <g class="layer layer-moto">
+    <g class="moto-inner">
+      <line class="stroke" x1="140" y1="455" x2="475" y2="455" stroke-width="4"/>
+      <path class="stroke" d="M 255 425 L 255 460 L 325 460 L 325 425 Z" stroke-width="3"/>
+      <line class="stroke" x1="265" y1="432" x2="265" y2="455" stroke-width="1.5"/>
+      <line class="stroke" x1="278" y1="432" x2="278" y2="455" stroke-width="1.5"/>
+      <line class="stroke" x1="302" y1="432" x2="302" y2="455" stroke-width="1.5"/>
+      <line class="stroke" x1="315" y1="432" x2="315" y2="455" stroke-width="1.5"/>
+      <line class="stroke" x1="258" y1="438" x2="322" y2="438" stroke-width="1"/>
+      <line class="stroke" x1="258" y1="448" x2="322" y2="448" stroke-width="1"/>
+      <ellipse class="stroke" cx="218" cy="437" rx="34" ry="17" stroke-width="3"/>
+      <line class="stroke" x1="212" y1="425" x2="224" y2="425" stroke-width="2"/>
+      <path class="stroke" d="M 348 440 Q 370 428 398 434 L 415 444 L 348 444 Z" stroke-width="3"/>
+      <line class="stroke" x1="145" y1="455" x2="135" y2="500" stroke-width="3"/>
+      <line class="stroke" x1="160" y1="455" x2="135" y2="500" stroke-width="3"/>
+      <line class="stroke" x1="465" y1="455" x2="475" y2="500" stroke-width="3"/>
+      <line class="stroke" x1="450" y1="455" x2="475" y2="500" stroke-width="3"/>
+      <path class="stroke" d="M 135 405 Q 122 400 122 425 Q 122 450 138 450" stroke-width="3"/>
+      <circle class="stroke" cx="120" cy="403" r="4" stroke-width="2"/>
+
+      <g class="exhaust">
+        <path class="stroke" d="M 330 472 Q 365 478 405 481 Q 435 483 460 483" stroke-width="4"/>
+        <circle class="stroke" cx="460" cy="483" r="5" stroke-width="2.5"/>
+      </g>
+
+      <circle class="stroke" cx="135" cy="510" r="22" stroke-width="3"/>
+      <circle class="stroke" cx="135" cy="510" r="9" stroke-width="2.5"/>
+      <line class="stroke" x1="135" y1="488" x2="135" y2="532" stroke-width="1.5"/>
+      <line class="stroke" x1="113" y1="510" x2="157" y2="510" stroke-width="1.5"/>
+
+      <circle class="stroke" cx="475" cy="510" r="24" stroke-width="3"/>
+      <circle class="stroke" cx="475" cy="510" r="10" stroke-width="2.5"/>
+      <line class="stroke" x1="475" y1="486" x2="475" y2="534" stroke-width="1.5"/>
+      <line class="stroke" x1="451" y1="510" x2="499" y2="510" stroke-width="1.5"/>
+
+      <line class="stroke" x1="413" y1="440" x2="415" y2="410" stroke-width="2.5"/>
+      <path class="stroke" d="M 415 410 Q 430 410 430 422" stroke-width="2.5"/>
+    </g>
+
+    <!-- Exhaust smoke (drifts right and up) -->
+    <g class="smoke">
+      <ellipse cx="465" cy="483" rx="12" ry="6" fill="#fff" opacity="0.3"/>
+      <ellipse cx="475" cy="478" rx="8" ry="4" fill="#fff" opacity="0.2"/>
+    </g>
+  </g>
+
+  <!-- EIGHTH NOTES -->
+  <g class="layer layer-tagline">
+    <g class="note-left">
+      <line class="stroke" x1="135" y1="558" x2="135" y2="528" stroke-width="3"/>
+      <ellipse class="fill-white" cx="128" cy="562" rx="7" ry="5" transform="rotate(-20 128 562)"/>
+    </g>
+    <g class="note-right">
+      <line class="stroke" x1="465" y1="558" x2="465" y2="528" stroke-width="3"/>
+      <ellipse class="fill-white" cx="458" cy="562" rx="7" ry="5" transform="rotate(-20 458 562)"/>
+    </g>
+
+    <text x="300" y="568" text-anchor="middle"
+          font-family="Georgia, 'Times New Roman', serif"
+          font-style="italic"
+          font-size="22"
+          fill="#fff"
+          font-weight="400">music for all occasions</text>
+
+    <line class="stroke" x1="80" y1="540" x2="520" y2="540" stroke-width="1" opacity="0.4"/>
+  </g>
+
+</svg>
+</div>
+</body>
+</html>
