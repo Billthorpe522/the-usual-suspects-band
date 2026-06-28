@@ -566,6 +566,17 @@ a:hover {
   text-decoration: none;
   border-color: var(--brass-bright);
 }
+.social-link--disabled {
+  border-style: dashed;
+  color: var(--muted);
+  cursor: not-allowed;
+  background: transparent;
+}
+.social-link--disabled:hover {
+  background: transparent;
+  color: var(--muted);
+  border-color: var(--brass);
+}
 
 /* ─── FOOTER ─────────────────────────────────────────────────── */
 
