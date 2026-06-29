@@ -645,3 +645,33 @@ a:hover {
   .btn { width: 100%; }
   .hero-cta { flex-direction: column; }
 }
+
+/* ─── COMPACT SETLIST (footer) ───────────────────────────────── */
+
+.setlist-compact-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 0 0 0.5rem;
+}
+.setlist-compact {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.setlist-compact li {
+  white-space: nowrap;
+}
+.setlist-compact li span {
+  color: var(--muted);
+  margin-left: 0.35rem;
+}
+@media (max-width: 600px) {
+  .setlist-compact { font-size: 0.72rem; gap: 0.2rem 1rem; }
+}
