@@ -197,6 +197,35 @@ a:hover {
   flex-wrap: wrap;
 }
 
+.hero-upcoming {
+  margin-top: 1.75rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+.hero-upcoming strong {
+  color: var(--brass-bright);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+.upcoming-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  animation: upcoming-pulse 2s ease-in-out infinite;
+}
+@keyframes upcoming-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 .btn {
   display: inline-block;
   padding: 0.95rem 1.85rem;
