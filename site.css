@@ -355,6 +355,36 @@ a:hover {
   text-align: center;
 }
 
+/* ─── PODCAST EMBED ─────────────────────────────────────────── */
+
+.podcast-embed {
+  margin: 2rem 0 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-deep);
+  border: 1px solid var(--line-strong);
+  position: relative;
+}
+.podcast-embed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  box-shadow:
+    inset 12px 12px 0 -11px var(--brass),
+    inset -12px 12px 0 -11px var(--brass),
+    inset 12px -12px 0 -11px var(--brass),
+    inset -12px -12px 0 -11px var(--brass);
+  opacity: 0.5;
+}
+.podcast-embed iframe {
+  display: block;
+  width: 100%;
+  height: 232px;
+  border: 0;
+}
+
 /* ─── BAND ──────────────────────────────────────────────────── */
 
 .band-grid {
