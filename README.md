@@ -22,7 +22,7 @@ Buck Dennison · (708) 214-4901 · buck956@att.net
 
 ## On the web
 
-- [Facebook](https://www.facebook.com/TheUsualSuspects)
+- [Facebook](https://www.facebook.com/profile.php?id=100029619594462)
 - [YouTube — Brass Boot Studio](https://www.youtube.com/@brassbootstudio)
 
 ## Technical
