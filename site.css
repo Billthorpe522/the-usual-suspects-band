@@ -384,7 +384,8 @@ a:hover {
 }
 .section-alt .band-card { background: var(--bg); }
 
-.band-ph {
+.band-ph,
+.band-photo {
   width: 100%;
   aspect-ratio: 1 / 1;
   background:
@@ -401,6 +402,10 @@ a:hover {
   letter-spacing: 0.15em;
   position: relative;
   overflow: hidden;
+  object-fit: cover;
+}
+.band-photo {
+  display: block;
 }
 /* stamped-leather feel for band photo placeholders */
 .band-ph::after {
