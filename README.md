@@ -11,8 +11,8 @@ VFW halls, American Legion posts, bars, fall fests, and private events across Ch
 ## The lineup
 
 - **Steve "Buck" Dennison** — Lead vocals · Guitar · Booking
-- **Frank Gatto** — Guitar · Vocals
-- **Jim Mahalovich** — Drums
+- **Frank Gatto** — Guitar
+- **Jim Mihalovich** — Drums · Backing vocals
 - **Bill Thorpe** — Bass · Vocals *(Billy's dad)*
 - **Billy Thorpe** — Guitar · Vocals · Recording
 
