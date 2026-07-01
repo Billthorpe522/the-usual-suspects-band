@@ -94,6 +94,56 @@
         "@id": "https://billthorpe522.github.io/the-usual-suspects-band/#band"
       },
       "description": "Live classic rock, R&B, and country for a Friday night at the Manteno American Legion. Open to the public."
+    },
+    {
+      "@type": "Event",
+      "@id": "https://billthorpe522.github.io/the-usual-suspects-band/#newlenox-sept-19",
+      "name": "The Usual Suspects — Live at New Lenox American Legion",
+      "startDate": "2026-09-19T14:00",
+      "endDate": "2026-09-19T18:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "New Lenox American Legion — Thomas E. Hartung Post 1977",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "14414 W. Ford Dr",
+          "addressLocality": "New Lenox",
+          "addressRegion": "IL",
+          "postalCode": "60451",
+          "addressCountry": "US"
+        }
+      },
+      "performer": {
+        "@id": "https://billthorpe522.github.io/the-usual-suspects-band/#band"
+      },
+      "description": "Saturday afternoon set — live classic rock, R&B, and country at the New Lenox American Legion. Open to the public."
+    },
+    {
+      "@type": "Event",
+      "@id": "https://billthorpe522.github.io/the-usual-suspects-band/#newlenox-nov-14",
+      "name": "The Usual Suspects — Live at New Lenox American Legion",
+      "startDate": "2026-11-14T14:00",
+      "endDate": "2026-11-14T18:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "New Lenox American Legion — Thomas E. Hartung Post 1977",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "14414 W. Ford Dr",
+          "addressLocality": "New Lenox",
+          "addressRegion": "IL",
+          "postalCode": "60451",
+          "addressCountry": "US"
+        }
+      },
+      "performer": {
+        "@id": "https://billthorpe522.github.io/the-usual-suspects-band/#band"
+      },
+      "description": "Saturday afternoon event — live classic rock, R&B, and country at the New Lenox American Legion. Open to the public."
     }
   ]
 }
@@ -106,7 +156,23 @@
 </head>
 <body>
 
-<header class="hero">
+<!-- ─── STICKY NAV ─────────────────────────────────────────── -->
+<nav class="site-nav" aria-label="Primary">
+  <div class="container site-nav-inner">
+    <a href="#top" class="site-nav-brand">The Usual Suspects</a>
+    <button class="site-nav-toggle" aria-expanded="false" aria-controls="site-nav-list">Menu</button>
+    <ul class="site-nav-list" id="site-nav-list">
+      <li><a href="#listen">Listen</a></li>
+      <li><a href="#video">Video</a></li>
+      <li><a href="#shows">Shows</a></li>
+      <li><a href="#band">Band</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#book" class="site-nav-cta">Book</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
   <div class="container">
     <!-- BAND LOGO -->
     <div class="logo-wrap">
@@ -126,14 +192,103 @@
       <p class="hero-sub">A five-piece cover band out of the south suburbs of Chicago playing the classic rock, R&amp;B, and country songs you've heard a thousand times and never get tired of. VFW halls, American Legion posts, bars, fall fests, private events. We bring the show; you bring the room.</p>
       <div class="hero-cta">
         <a href="#book" class="btn btn-primary">Book the band</a>
-        <a href="#video" class="btn btn-ghost">Watch us play →</a>
+        <a href="#listen" class="btn btn-ghost">Hear us play →</a>
       </div>
       <p class="hero-upcoming"><span class="upcoming-dot" aria-hidden="true"></span><strong>Next up:</strong> Friday July 17 — Manteno American Legion. Open to the public.</p>
+    </div>
+  </div>
+
+  <!-- Hero photo strip: anchors the page visually, tells the working-band story
+       without competing with the logo. Desaturated + dimmed via CSS overlay. -->
+  <div class="hero-strip" aria-hidden="true">
+    <img src="photos/billy-photo.jpg" alt="" loading="eager">
+    <div class="hero-strip-overlay"></div>
+    <div class="hero-strip-rail">
+      <div class="hero-strip-mark">
+        <span class="hero-strip-rivet"></span>
+        <span class="hero-strip-rivet"></span>
+        <span class="hero-strip-rivet"></span>
+      </div>
+      <p class="hero-strip-tag">FALL FEST · OUTDOOR STAGE · WHITE STRAT · WORKING ROOMS</p>
+      <div class="hero-strip-mark">
+        <span class="hero-strip-rivet"></span>
+        <span class="hero-strip-rivet"></span>
+        <span class="hero-strip-rivet"></span>
+      </div>
     </div>
   </div>
 </header>
 
 <main>
+
+  <!-- ─── LISTEN (audio samples) ──────────────────────────────── -->
+  <!--
+    To activate a clip: drop an .mp3 into the workspace root (or `audio/`)
+    with one of these filenames:
+      - classic-rock.mp3
+      - r-and-b.mp3
+      - country.mp3
+    Then update the <source src="..."> below to match. The empty-state
+    placeholder ("Sample coming soon") auto-swaps to a real <audio> player
+    when the file loads (see site.js). Update the data-src on each card to
+    point at the new file path.
+  -->
+  <section class="section section-alt" id="listen">
+    <div class="container">
+      <span class="eyebrow">00 — LISTEN</span>
+      <h2>Hear us before you book us.</h2>
+      <p class="section-lede">Three live samples from the set — a Southern rocker, an R&amp;B standard, and a country classic. Recorded at the kind of room we play most weekends. <em>Samples coming soon — check back, or hit us up and we'll send a link.</em></p>
+
+      <div class="audio-grid">
+
+        <article class="audio-card" data-src="audio/classic-rock.mp3" data-label="Classic rock sample">
+          <div class="audio-card-head">
+            <span class="audio-genre">Classic Rock</span>
+            <h3 class="audio-title">Southern-fried, loud, and proud.</h3>
+          </div>
+          <div class="audio-player">
+            <!-- site.js swaps this placeholder for a real <audio controls> when audio/classic-rock.mp3 loads -->
+            <div class="audio-empty">
+              <span class="audio-empty-icon" aria-hidden="true">♪</span>
+              <p>Sample coming soon</p>
+              <p class="audio-empty-sub">Drop <code>audio/classic-rock.mp3</code> into the workspace to activate.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="audio-card" data-src="audio/r-and-b.mp3" data-label="R&amp;B sample">
+          <div class="audio-card-head">
+            <span class="audio-genre">R&amp;B</span>
+            <h3 class="audio-title">Soul vocals, tight pocket.</h3>
+          </div>
+          <div class="audio-player">
+            <div class="audio-empty">
+              <span class="audio-empty-icon" aria-hidden="true">♪</span>
+              <p>Sample coming soon</p>
+              <p class="audio-empty-sub">Drop <code>audio/r-and-b.mp3</code> into the workspace to activate.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="audio-card" data-src="audio/country.mp3" data-label="Country sample">
+          <div class="audio-card-head">
+            <span class="audio-genre">Country</span>
+            <h3 class="audio-title">Two-steps, ballads, and a heartbreak.</h3>
+          </div>
+          <div class="audio-player">
+            <div class="audio-empty">
+              <span class="audio-empty-icon" aria-hidden="true">♪</span>
+              <p>Sample coming soon</p>
+              <p class="audio-empty-sub">Drop <code>audio/country.mp3</code> into the workspace to activate.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="audio-footnote">All samples recorded live, mixed in-house. Want a longer cut or a private SoundCloud link? <a href="#book">Drop us a line →</a></p>
+    </div>
+  </section>
 
   <!-- ─── WHAT WE PLAY ────────────────────────────────────────── -->
   <section class="section" id="what">
@@ -145,14 +300,21 @@
   </section>
 
   <!-- ─── LIVE FOOTAGE ─────────────────────────────────────────── -->
+  <!--
+    Primary player = YouTube embed (always works, free hosting).
+    Local fallback = if video/reel.mp4 exists in the workspace, site.js swaps
+    the YouTube iframe for a <video controls> tag pointing at the local file.
+    Update the data-src on the wrapper to change the file path.
+  -->
   <section class="section section-alt" id="video">
     <div class="container">
       <span class="eyebrow">02 — LIVE FOOTAGE</span>
       <h2>The proof.</h2>
       <p class="section-lede">A full set recorded at the Frankfort VFW Post 1493 — the kind of room we play most weekends. Filmed with a GoPro. Mixed live. This is what the band actually sounds like.</p>
 
-      <div class="video-wrap">
+      <div class="video-wrap" data-youtube="DEuKudX_Gk4" data-local="video/reel.mp4">
         <div class="video-frame">
+          <!-- YouTube is the default. site.js replaces this iframe with a local <video> if video/reel.mp4 exists. -->
           <iframe
             src="https://www.youtube.com/embed/DEuKudX_Gk4"
             title="The Usual Suspects live at Frankfort VFW 1493"
@@ -191,10 +353,150 @@
     </div>
   </section>
 
+  <!-- ─── UPCOMING SHOWS (calendar) ────────────────────────────── -->
+  <!--
+    Each show is a <article class="show-card"> with date badge + venue info.
+    site.js auto-promotes cards within the next 60 days into "On the books" status.
+    For past shows: change .show-card class to .show-card .show-card-past and
+    they'll auto-sink to the bottom in faded style.
+    To mark a show SOLD OUT or CANCELLED, add .show-status-soldout or
+    .show-status-cancelled to the card.
+  -->
+  <section class="section" id="shows">
+    <div class="container">
+      <span class="eyebrow">03 — ON THE BOOKS</span>
+      <h2>Where to catch us next.</h2>
+      <p class="section-lede">Public shows are free to attend unless noted. Private events and parties aren't listed — but if you're a venue or event planner, <a href="#book">drop us a line</a>.</p>
+
+      <div class="shows-grid">
+
+        <article class="show-card">
+          <div class="show-date">
+            <span class="show-month">JUL</span>
+            <span class="show-day">17</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">Manteno American Legion</h3>
+            <p class="show-meta">Friday · 8:00 PM – 11:30 PM · 13 S. Walnut St, Manteno, IL</p>
+            <p class="show-detail">Open to the public. Full band. PA provided.</p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <article class="show-card">
+          <div class="show-date">
+            <span class="show-month">SEP</span>
+            <span class="show-day">19</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
+            <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
+            <p class="show-detail">Open to the public. Afternoon set — full band. 815-485-4651 for venue info.</p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <article class="show-card">
+          <div class="show-date">
+            <span class="show-month">NOV</span>
+            <span class="show-day">14</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
+            <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
+            <p class="show-detail">Open to the public. Afternoon event — full band. 815-485-4651 for venue info.</p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <!--
+          Template for adding more shows (copy + paste + edit):
+          <article class="show-card">
+            <div class="show-date">
+              <span class="show-month">MMM</span>
+              <span class="show-day">DD</span>
+              <span class="show-year">YYYY</span>
+            </div>
+            <div class="show-info">
+              <h3 class="show-venue">[VENUE NAME]</h3>
+              <p class="show-meta">[Day · Time · Address]</p>
+              <p class="show-detail">[Notes: open/private/cover/etc.]</p>
+            </div>
+            <div class="show-badge show-badge-open">OPEN</div>
+          </article>
+        -->
+
+        <article class="show-card show-card-placeholder">
+          <div class="show-info">
+            <h3 class="show-venue">More dates added weekly</h3>
+            <p class="show-detail">Hit the Facebook page or drop your email — we'll send the next month's schedule as it locks in.</p>
+          </div>
+          <a class="btn btn-ghost btn-small" href="https://www.facebook.com/profile.php?id=100029619594462" target="_blank" rel="noopener">Follow on Facebook →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── REVIEWS / TESTIMONIALS ───────────────────────────────── -->
+  <!--
+    Add real testimonials here. Each <blockquote class="review-card"> needs:
+      - The quote (text)
+      - The attribution (cite element)
+      - Optional: venue, date, photo
+    Keep them honest. Specific > generic. A VFW commander who says "they
+    filled the hall" carries more weight than a "great band!" Facebook comment.
+    Aim for 3–6 real ones. If you don't have them yet, leave the section
+    hidden by removing the section element OR add .section-coming-soon to it.
+  -->
+  <section class="section section-alt section-coming-soon" id="reviews">
+    <div class="container">
+      <span class="eyebrow">04 — WHAT PEOPLE SAY</span>
+      <h2>From the rooms that booked us.</h2>
+      <p class="section-lede">Testimonials from VFW commanders, American Legion post reps, bar owners, and event planners — the people who hired the band and watched the room. <em>Coming soon.</em></p>
+
+      <div class="reviews-grid">
+
+        <article class="review-card review-card-placeholder">
+          <span class="review-quote-mark" aria-hidden="true">"</span>
+          <p class="review-quote">[Quote goes here — specific, named, dated. Example: "They filled the hall on a Tuesday in February. Already rebooked for fall."]</p>
+          <footer class="review-cite">
+            <cite>[Name]</cite>
+            <span class="review-context">[Title] · [Venue] · [Date]</span>
+          </footer>
+        </article>
+
+        <article class="review-card review-card-placeholder">
+          <span class="review-quote-mark" aria-hidden="true">"</span>
+          <p class="review-quote">[Second testimonial]</p>
+          <footer class="review-cite">
+            <cite>[Name]</cite>
+            <span class="review-context">[Title] · [Venue] · [Date]</span>
+          </footer>
+        </article>
+
+        <article class="review-card review-card-placeholder">
+          <span class="review-quote-mark" aria-hidden="true">"</span>
+          <p class="review-quote">[Third testimonial]</p>
+          <footer class="review-cite">
+            <cite>[Name]</cite>
+            <span class="review-context">[Title] · [Venue] · [Date]</span>
+          </footer>
+        </article>
+
+      </div>
+
+      <p class="reviews-footnote">Have we played your room? <a href="#book">Send us a line</a> — we'd love to quote you (with permission, of course).</p>
+    </div>
+  </section>
+
   <!-- ─── THE BAND ────────────────────────────────────────────── -->
   <section class="section" id="band">
     <div class="container">
-      <span class="eyebrow">04 — THE BAND</span>
+      <span class="eyebrow">05 — THE BAND</span>
       <h2>Five guys, two of them named Bill.</h2>
 
       <div class="band-grid">
@@ -235,7 +537,7 @@
   <!-- ─── WHERE WE'VE PLAYED ───────────────────────────────────── -->
   <section class="section section-alt" id="venues">
     <div class="container">
-      <span class="eyebrow">05 — ROOMS WE'VE WORKED</span>
+      <span class="eyebrow">06 — ROOMS WE'VE WORKED</span>
       <h2>A few of the venues.</h2>
 
       <div class="venues-grid">
@@ -252,6 +554,10 @@
           <p>Manteno, IL · American Legion · regular sets (back July 17)</p>
         </div>
         <div class="venue-card">
+          <h3>New Lenox American Legion <span class="venue-sub">Post 1977</span></h3>
+          <p>New Lenox, IL · American Legion · afternoon sets · Sept 19 &amp; Nov 14</p>
+        </div>
+        <div class="venue-card">
           <h3>White Rhino Bar &amp; Grill</h3>
           <p>Dyer, IN · bar · food + drinks · 8:30pm sets</p>
         </div>
@@ -266,11 +572,78 @@
   </section>
 
   <!-- ─── BOOKING / CONTACT ────────────────────────────────────── -->
+  <!--
+    Booking form is a custom embed (mailto: wire) — same pattern as the
+    BTP site. Buck answers within 24 hours.
+    Update the `action` mailto below if Buck's email ever changes.
+    For a backend-submitted form (Formspree / Netlify Forms / etc.):
+      - change <form action="..."> to the endpoint
+      - swap submitBookForm() to fetch() with JSON body
+      - remove the mailto URL builder
+  -->
   <section class="section section-cta" id="book">
     <div class="container">
-      <span class="eyebrow">06 — BOOK THE BAND</span>
+      <span class="eyebrow">07 — BOOK THE BAND</span>
       <h2>Let's talk about your night.</h2>
       <p class="section-lede">Bars, VFW halls, American Legion posts, fall fests, private events, private parties, corporate. Anywhere with a power outlet and a crowd.</p>
+
+      <!-- Request form (the soft entry for venue / event planners who'd rather type than call) -->
+      <form class="request-form" id="bookForm" action="mailto:buck956@att.net" method="post" enctype="text/plain" onsubmit="return submitBookForm(event)">
+        <p class="form-intro">Tell us about your night — date, venue, rough headcount. We come back with availability and a quote within 24 hours. <strong>Buck reads every one.</strong></p>
+        <div class="form-row">
+          <label class="form-field">
+            <span class="form-label">Your name</span>
+            <input type="text" name="name" required placeholder="Jane Smith">
+          </label>
+          <label class="form-field">
+            <span class="form-label">Phone or email</span>
+            <input type="text" name="contact" required placeholder="(708) 555-0123 · you@example.com">
+          </label>
+        </div>
+        <div class="form-row">
+          <label class="form-field">
+            <span class="form-label">Venue type</span>
+            <select name="venue_type" required>
+              <option value="">— pick one —</option>
+              <option value="Bar / restaurant">Bar / restaurant</option>
+              <option value="VFW / American Legion / fraternal">VFW / American Legion / fraternal</option>
+              <option value="Fall festival / outdoor">Fall festival / outdoor</option>
+              <option value="Private party">Private party</option>
+              <option value="Corporate / company event">Corporate / company event</option>
+              <option value="Other">Other (describe below)</option>
+            </select>
+          </label>
+          <label class="form-field">
+            <span class="form-label">Event date</span>
+            <input type="date" name="event_date" required>
+          </label>
+        </div>
+        <div class="form-row">
+          <label class="form-field">
+            <span class="form-label">Expected headcount</span>
+            <input type="number" name="headcount" min="0" placeholder="e.g. 120">
+          </label>
+          <label class="form-field">
+            <span class="form-label">Hours needed</span>
+            <select name="hours">
+              <option value="2">2 hours</option>
+              <option value="3" selected>3 hours</option>
+              <option value="4">4 hours (full set w/ break)</option>
+              <option value="other">Other (note below)</option>
+            </select>
+          </label>
+        </div>
+        <label class="form-field form-field-full">
+          <span class="form-label">Anything else we should know?</span>
+          <textarea name="notes" rows="3" placeholder="Venue name + address, PA situation, special requests, song must-plays…"></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Send to Buck</button>
+          <p class="form-fineprint">Opens your email client pre-filled. We reply within 24 hours. Or just call <a href="tel:+17082144901">(708) 214-4901</a>.</p>
+        </div>
+      </form>
+
+      <div class="contact-divider"><span>or reach out directly</span></div>
 
       <div class="contact-grid">
         <div class="contact-card">
@@ -321,5 +694,79 @@
 </main>
 
 <script src="site.js"></script>
+
+<!--
+  ╔═══════════════════════════════════════════════════════════════╗
+  ║ FUTURE STUBS — uncomment when ready to ship                   ║
+  ╚═══════════════════════════════════════════════════════════════╝
+
+  ─── INSTAGRAM FEED ───────────────────────────────────────────
+  When the band sets up an Instagram account, drop the handle in
+  data-handle below and uncomment. Will auto-render the latest 6
+  posts via the public embed endpoint (no API token needed).
+
+  <section class="section section-alt" id="instagram">
+    <div class="container">
+      <span class="eyebrow">08 — INSTAGRAM</span>
+      <h2>From the room.</h2>
+      <p class="section-lede">Photos and short clips from recent gigs. Follow <a href="https://instagram.com/TheUsualSuspectsBand" target="_blank" rel="noopener">@TheUsualSuspectsBand</a> for the live take.</p>
+      <div class="instagram-grid" data-handle="TheUsualSuspectsBand">
+        <!-- site.js renders latest 6 posts here -->
+      </div>
+    </div>
+  </section>
+
+  ─── PRESS KIT DOWNLOAD ───────────────────────────────────────
+  One-page PDF + high-res logo + band photos + bio. For venues that
+  want to print posters or include the band in event marketing.
+
+  <section class="section" id="press-kit">
+    <div class="container">
+      <span class="eyebrow">09 — PRESS KIT</span>
+      <h2>For venues and event planners.</h2>
+      <p class="section-lede">High-res logo, band photos, bio, and stage plot — everything you need for posters, programs, and event listings.</p>
+      <div class="press-kit-grid">
+        <a class="press-kit-card" href="press-kit/press-kit.pdf" download>
+          <span class="press-kit-icon">📄</span>
+          <strong>Press kit PDF</strong>
+          <span>One-page overview</span>
+        </a>
+        <a class="press-kit-card" href="logo.jpg" download>
+          <span class="press-kit-icon">🖼️</span>
+          <strong>Logo (high-res)</strong>
+          <span>JPG, transparent-friendly</span>
+        </a>
+        <a class="press-kit-card" href="photos.zip" download>
+          <span class="press-kit-icon">📸</span>
+          <strong>Band photos</strong>
+          <span>Print-ready ZIP</span>
+        </a>
+        <a class="press-kit-card" href="stage-plot.pdf" download>
+          <span class="press-kit-icon">🎛️</span>
+          <strong>Stage plot</strong>
+          <span>Input list + layout</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  ─── FAN NEWSLETTER ───────────────────────────────────────────
+  Once-per-month email with the next month's schedule + a clip from
+  the most recent gig. Use Buttondown / Mailchimp / etc. for the
+  backend; the form just needs to POST to the subscribe endpoint.
+
+  <section class="section section-alt" id="newsletter">
+    <div class="container">
+      <span class="eyebrow">10 — STAY IN THE LOOP</span>
+      <h2>One email a month. The next month's shows + a fresh clip.</h2>
+      <form class="newsletter-form" action="https://buttondown.email/api/emails/embed-subscribe/usualsuspects" method="post" target="popupwindow">
+        <input type="email" name="email" required placeholder="you@example.com">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="newsletter-fineprint">No spam, ever. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+-->
 </body>
 </html>
