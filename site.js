@@ -47,32 +47,28 @@
     });
   }
 
-  // ─── 3. Audio sample auto-load ─────────────────────────────
-  document.querySelectorAll('.audio-card[data-src]').forEach((card) => {
-    const src = card.getAttribute('data-src');
-    const label = card.getAttribute('data-label') || 'Audio sample';
-    const player = card.querySelector('.audio-player');
-    if (!src || !player) return;
-
-    const probe = new Audio();
-    probe.addEventListener('loadedmetadata', () => {
-      // File exists. Replace the empty placeholder with a real player.
-      const audio = document.createElement('audio');
-      audio.controls = true;
-      audio.preload = 'metadata';
-      audio.src = src;
-      audio.setAttribute('aria-label', label);
-      player.innerHTML = '';
-      player.appendChild(audio);
-    });
-    probe.addEventListener('error', () => {
-      // File doesn't exist yet. Leave the empty placeholder visible
-      // (it already says "Sample coming soon" + filename hint).
-      return;
-    });
-    // Setting src triggers the load attempt
-    probe.src = src;
-  });
+  // ─── 3. Audio sample auto-load (DORMANT — LISTEN section removed 2026-07-01)
+  // To re-enable: drop .mp3 files into audio/, restore the LISTEN <section>
+  // in index.html, then uncomment the block below.
+  // document.querySelectorAll('.audio-card[data-src]').forEach((card) => {
+  //   const src = card.getAttribute('data-src');
+  //   const label = card.getAttribute('data-label') || 'Audio sample';
+  //   const player = card.querySelector('.audio-player');
+  //   if (!src || !player) return;
+  //
+  //   const probe = new Audio();
+  //   probe.addEventListener('loadedmetadata', () => {
+  //     const audio = document.createElement('audio');
+  //     audio.controls = true;
+  //     audio.preload = 'metadata';
+  //     audio.src = src;
+  //     audio.setAttribute('aria-label', label);
+  //     player.innerHTML = '';
+  //     player.appendChild(audio);
+  //   });
+  //   probe.addEventListener('error', () => { return; });
+  //   probe.src = src;
+  // });
 
   // ─── 4. Video local-fallback swap ──────────────────────────
   const videoWrap = document.querySelector('.video-wrap[data-local]');
