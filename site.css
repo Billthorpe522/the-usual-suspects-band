@@ -790,7 +790,13 @@ a:hover {
   .show-card-placeholder { flex-direction: column; align-items: flex-start; }
 }
 
-/* ─── REVIEWS ───────────────────────────────────────────────── */
+/* ─── REVIEWS (DORMANT — section removed 2026-07-01, re-enable later) ───
+   Rules below stay uncommented so the styles are ready to go when real
+   testimonials arrive. They don't fire because there's no matching HTML.
+   To re-enable: restore the <section id="reviews"> in index.html and the
+   section will pick up these styles automatically. */
+
+/* ─── SECTION COMING SOON ───────────────────────────────────── */
 
 .reviews-grid {
   display: grid;
