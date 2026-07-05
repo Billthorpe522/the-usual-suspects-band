@@ -146,8 +146,6 @@ function submitBookForm(event) {
     contact: form.contact.value.trim(),
     venue_type: form.venue_type.value.trim(),
     event_date: form.event_date.value.trim(),
-    headcount: form.headcount.value.trim(),
-    hours: form.hours.value.trim(),
     notes: form.notes.value.trim(),
   };
 
@@ -159,8 +157,6 @@ function submitBookForm(event) {
     ``,
     `Venue type: ${data.venue_type}`,
     `Event date: ${data.event_date}`,
-    `Expected headcount: ${data.headcount || '(not provided)'}`,
-    `Hours needed: ${data.hours}`,
     ``,
     `Notes:`,
     data.notes || '(none)',

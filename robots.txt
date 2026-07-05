@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://billthorpe522.github.io/the-usual-suspects-band/sitemap.xml
+Sitemap: https://playtheusualsuspects.com/sitemap.xml
