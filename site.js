@@ -167,6 +167,17 @@ function submitBookForm(event) {
 
   const mailto = `mailto:buck956@att.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
+  // Track the booking inquiry as a Lead conversion for Facebook Pixel.
+  // Fires before the mail client opens so Meta's attribution captures the event.
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', {
+      content_name: 'booking_inquiry',
+      content_category: data.venue_type || 'unspecified',
+      value: 1.00,
+      currency: 'USD',
+    });
+  }
+
   // Trigger the mail client. Use window.location so the form action fallback
   // (for browsers without JS) still has a sensible behavior path.
   window.location.href = mailto;
