@@ -286,17 +286,18 @@ a:hover {
 
 /* Cover photo (full band lineup) */
 .hero-cover {
-  margin-bottom: 2rem;
-  border-radius: 6px;
+  margin: 0 auto 1.75rem;
+  max-width: 560px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(200, 161, 74, 0.18);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(200, 161, 74, 0.18);
   background: var(--bg-card);
 }
 .hero-cover-img {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 480px;
+  max-height: 320px;
   object-fit: cover;
   object-position: center 25%;
 }
