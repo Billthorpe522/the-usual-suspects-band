@@ -297,9 +297,9 @@ a:hover {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 320px;
+  max-height: 360px;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center 30%;
 }
 
 /* Hero pitch block */
