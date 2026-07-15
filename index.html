@@ -45,7 +45,8 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       "alternateName": "Usual Suspects Band",
       "description": "A live classic rock, R&B, and country cover band playing bars, VFW halls, American Legion posts, private events, and fall festivals across the south suburbs of Chicago and Northwest Indiana.",
       "url": "https://playtheusualsuspects.com/",
-      "image": "https://playtheusualsuspects.com/logo.jpg",
+      "image": "https://playtheusualsuspects.com/cover.jpg",
+      "logo": "https://playtheusualsuspects.com/logo.jpg",
       "genre": ["Classic Rock", "R&B", "Country", "Southern Rock"],
       "member": [
         {"@type": "Person", "name": "Steve \"Buck\" Dennison", "roleName": "Lead vocals, Guitar, Booking"},
@@ -63,7 +64,8 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       "@type": "LocalBusiness",
       "@id": "https://playtheusualsuspects.com/#business",
       "name": "The Usual Suspects — Live Band Booking",
-      "image": "https://playtheusualsuspects.com/logo.jpg",
+      "image": "https://playtheusualsuspects.com/cover.jpg",
+      "logo": "https://playtheusualsuspects.com/logo.jpg",
       "url": "https://playtheusualsuspects.com/",
       "description": "Live classic rock, R&B, and country band available for booking at bars, VFW halls, American Legion posts, private events, parties, and corporate functions across the south suburbs of Chicago and Northwest Indiana.",
       "telephone": "+1-708-214-4901",
@@ -194,18 +196,18 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
 
 <header class="hero" id="top">
   <div class="container">
-    <!-- BAND LOGO -->
-    <div class="logo-wrap">
-      <img src="logo.jpg" alt="The Usual Suspects — music for all occasions" class="logo-img">
-      <!-- Fallback if logo.jpg not loaded: render text-based mark -->
-      <div class="logo-fallback" aria-hidden="true">
-        <div class="logo-mark">K</div>
-        <h1 class="logo-text">The Usual Suspects</h1>
-        <p class="logo-tag">music for all occasions</p>
-      </div>
+    <!-- COVER PHOTO -->
+    <div class="hero-cover">
+      <img src="cover.jpg" alt="The Usual Suspects — full band lineup" class="hero-cover-img" loading="eager">
     </div>
 
-    <!-- PRIMARY SEO HEADLINE (sits below the logo for search engines + venue bookers) -->
+    <!-- BAND TAGLINE (text fallback if cover.jpg fails to load) -->
+    <div class="logo-fallback" aria-hidden="true">
+      <h1 class="logo-text">The Usual Suspects</h1>
+      <p class="logo-tag">music for all occasions</p>
+    </div>
+
+    <!-- PRIMARY SEO HEADLINE (sits below the cover for search engines + venue bookers) -->
     <div class="hero-pitch">
       <p class="eyebrow">CLASSIC ROCK &amp; R&amp;B · SOUTH SUBURBS CHICAGO &amp; NW INDIANA</p>
       <h2 class="hero-h">Music for all occasions.</h2>
@@ -300,6 +302,30 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       <h2>Where to catch us next.</h2>
       <p class="section-lede">Public shows are free to attend unless noted. Private events and parties aren't listed — but if you're a venue or event planner, <a href="#book">drop us a line</a>.</p>
 
+      <!-- COUNTDOWN to next show — populated by site.js from the first non-past show-card -->
+      <div class="countdown" id="next-show-countdown" hidden>
+        <p class="countdown-label">Next show in</p>
+        <div class="countdown-grid">
+          <div class="countdown-cell">
+            <span class="countdown-num" data-unit="days">--</span>
+            <span class="countdown-unit">days</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" data-unit="hours">--</span>
+            <span class="countdown-unit">hours</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" data-unit="minutes">--</span>
+            <span class="countdown-unit">minutes</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" data-unit="seconds">--</span>
+            <span class="countdown-unit">seconds</span>
+          </div>
+        </div>
+        <p class="countdown-target" id="countdown-target"></p>
+      </div>
+
       <div class="shows-grid">
 
         <article class="show-card">
@@ -312,6 +338,24 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
             <h3 class="show-venue">Manteno American Legion</h3>
             <p class="show-meta">Friday · 8:00 PM – 11:30 PM · 13 S. Walnut St, Manteno, IL</p>
             <p class="show-detail">Open to the public.</p>
+            <p class="show-cta-row">
+              <a href="https://www.facebook.com/share/1E9r4g5Meb/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Facebook share</a>
+            </p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <!-- cache-bust: phantom-harley-2026-08-29 -->
+        <article class="show-card">
+          <div class="show-date">
+            <span class="show-month">AUG</span>
+            <span class="show-day">29</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">Phantom Harley-Davidson</h3>
+            <p class="show-meta">Saturday · afternoon · 291 N Cypress Dr, Manteno, IL 60950</p>
+            <p class="show-detail">Time TBA. Open to the public.</p>
           </div>
           <div class="show-badge show-badge-open">OPEN</div>
         </article>
@@ -564,6 +608,9 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
   <!-- ─── EDITORIAL FOOTER ─────────────────────────────────────── -->
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-logo">
+        <img src="logo.jpg" alt="The Usual Suspects" class="footer-logo-img">
+      </div>
       <p class="setlist-compact-label">Sample set, just so you get the idea — interchangeable with the room:</p>
       <ul class="setlist-compact">
         <li>Before You Accuse Me <span>Eric Clapton</span></li>

@@ -121,6 +121,87 @@
     }
   });
 
+  // ─── 5b. Countdown to next show ────────────────────────────
+  // Reads the first non-past show-card in the DOM and ticks down to the
+  // show date (8 PM local by default, parsed from the show-meta line when
+  // possible). Auto-hides if no upcoming show exists.
+  (function () {
+    const wrap = document.getElementById('next-show-countdown');
+    if (!wrap) return;
+    const months = { JAN:0,FEB:1,MAR:2,APR:3,MAY:4,JUN:5,JUL:6,AUG:7,SEP:8,OCT:9,NOV:10,DEC:11 };
+    const nextCard = Array.from(document.querySelectorAll('.show-card'))
+      .find((c) => !c.classList.contains('show-card-past')
+                 && !c.classList.contains('show-card-placeholder'));
+    if (!nextCard) return;
+    const monthAbbr = nextCard.querySelector('.show-month')?.textContent.trim();
+    const day = parseInt(nextCard.querySelector('.show-day')?.textContent.trim(), 10);
+    const year = parseInt(nextCard.querySelector('.show-year')?.textContent.trim(), 10);
+    if (!monthAbbr || !(monthAbbr in months) || isNaN(day) || isNaN(year)) return;
+
+    // Try to parse time-of-day from .show-meta (e.g. "Sunday · 3:00 PM – 7:00 PM")
+    let startHour = 20, startMin = 0; // default 8:00 PM
+    const metaText = nextCard.querySelector('.show-meta')?.textContent || '';
+    const timeMatch = metaText.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
+    if (timeMatch) {
+      let h = parseInt(timeMatch[1], 10);
+      const m = parseInt(timeMatch[2], 10);
+      const ampm = timeMatch[3].toUpperCase();
+      if (ampm === 'PM' && h < 12) h += 12;
+      if (ampm === 'AM' && h === 12) h = 0;
+      startHour = h; startMin = m;
+    }
+    const showDate = new Date(year, months[monthAbbr], day, startHour, startMin);
+    if (showDate < new Date()) return; // already past — hide
+
+    // Pull venue for the target line
+    const venueName = nextCard.querySelector('.show-venue')?.textContent.trim() || '';
+
+    // Day-of-week helper (Sun = 0)
+    const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const targetLine = `${dayNames[showDate.getDay()]}, ${monthNames[showDate.getMonth()]} ${day} · ${venueName}`;
+    const targetEl = document.getElementById('countdown-target');
+    if (targetEl) targetEl.textContent = targetLine;
+
+    const numEls = {
+      days: wrap.querySelector('[data-unit="days"]'),
+      hours: wrap.querySelector('[data-unit="hours"]'),
+      minutes: wrap.querySelector('[data-unit="minutes"]'),
+      seconds: wrap.querySelector('[data-unit="seconds"]')
+    };
+    const labelEl = wrap.querySelector('.countdown-label');
+
+    function tick() {
+      const ms = showDate - new Date();
+      if (ms <= 0) {
+        // It's showtime
+        wrap.classList.add('is-tonight');
+        if (labelEl) labelEl.textContent = 'Tonight!';
+        if (numEls.days)    numEls.days.textContent    = '00';
+        if (numEls.hours)   numEls.hours.textContent   = '00';
+        if (numEls.minutes) numEls.minutes.textContent = '00';
+        if (numEls.seconds) numEls.seconds.textContent = '00';
+        return false; // stop ticking
+      }
+      const totalSec = Math.floor(ms / 1000);
+      const days    = Math.floor(totalSec / 86400);
+      const hours   = Math.floor((totalSec % 86400) / 3600);
+      const minutes = Math.floor((totalSec % 3600) / 60);
+      const seconds = totalSec % 60;
+      if (numEls.days)    numEls.days.textContent    = String(days).padStart(2, '0');
+      if (numEls.hours)   numEls.hours.textContent   = String(hours).padStart(2, '0');
+      if (numEls.minutes) numEls.minutes.textContent = String(minutes).padStart(2, '0');
+      if (numEls.seconds) numEls.seconds.textContent = String(seconds).padStart(2, '0');
+      return true;
+    }
+
+    wrap.hidden = false;
+    tick();
+    const iv = setInterval(() => {
+      if (!tick()) clearInterval(iv);
+    }, 1000);
+  })();
+
   // ─── 6. Smooth scroll offset for sticky nav ────────────────
   // Add scroll-margin-top to all sections so anchor jumps clear the sticky nav.
   const navHeight = document.querySelector('.site-nav');
