@@ -1452,51 +1452,6 @@ a:hover {
   filter: saturate(1.1);
 }
 
-/* ─── LIMIT 10 SCARCITY TREATMENTS ────────────────────────────
-   Two visual badges communicate the same scarcity message at two
-   surfaces: the trigger button (before-click) and the modal (after-click).
-   Color = oxblood wax seal to harmonize with the leather coupon palette. */
-
-/* Inline pill on the trigger button — sits next to the coupon-emoji */
-.btn-limit-pill {
-  display: inline-block;
-  margin-left: 0.5rem;
-  padding: 0.1rem 0.5rem;
-  background: var(--red);
-  color: #fff5dc;
-  border: 1px solid #6b1a18;
-  border-radius: 999px;
-  font-family: var(--font-body);
-  font-size: 0.66rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1;
-  vertical-align: middle;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
-  text-shadow: 0 1px 0 rgba(0,0,0,0.35);
-}
-
-/* Bigger wax-seal badge inside the modal — sits above the title */
-.modal-limit-badge {
-  display: inline-block;
-  align-self: flex-start;
-  margin-bottom: 0.5rem;
-  padding: 0.3rem 0.7rem;
-  background: linear-gradient(135deg, #a82820 0%, #7a1812 100%);
-  color: #fff5dc;
-  border: 1.5px solid #4a0e0a;
-  border-radius: 3px;
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.18);
-  white-space: nowrap;
-}
-
 /* Hide trigger button when its parent show-card has been marked past */
 .show-card-past .btn-coupon { display: none; }
 
