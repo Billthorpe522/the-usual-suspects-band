@@ -340,6 +340,9 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
             <p class="show-detail">Open to the public.</p>
             <p class="show-cta-row">
               <a href="https://www.facebook.com/share/1E9r4g5Meb/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Facebook share</a>
+              <button type="button" class="btn btn-coupon btn-small" data-free-drink-trigger aria-haspopup="dialog">
+                <span class="coupon-emoji" aria-hidden="true">🎟️</span> Free drink coupon
+              </button>
             </p>
           </div>
           <div class="show-badge show-badge-open">OPEN</div>
@@ -667,6 +670,24 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
   </section>
 
 </main>
+
+<!-- ─── FREE DRINK COUPON MODAL ─────────────────────────────────── -->
+<!--
+  Triggered by any [data-free-drink-trigger] button (currently the Manteno Jul 17 card).
+  site.js handles open/close: click button → open; click backdrop, click X, or press Esc → close.
+  Focus is trapped inside the dialog while open. Body scroll is locked.
+  When the parent .show-card becomes .show-card-past (date has passed), the trigger button hides via CSS.
+-->
+<div class="modal" id="free-drink-modal" role="dialog" aria-modal="true" aria-labelledby="free-drink-modal-title" aria-hidden="true" hidden>
+  <div class="modal-backdrop" data-free-drink-close></div>
+  <div class="modal-dialog" role="document">
+    <button type="button" class="modal-close" data-free-drink-close aria-label="Close coupon">×</button>
+    <h2 class="modal-title" id="free-drink-modal-title">Your free drink is on us.</h2>
+    <p class="modal-caption">Show this at the bar at our next gig and your first drink is covered. Screenshot it now so you don't forget.</p>
+    <img src="free-drink-coupon.jpg" alt="Free drink coupon — The Usual Suspects" class="modal-coupon" width="1280" height="714">
+    <p class="modal-foot">Valid Friday, July 17 · Manteno American Legion · 8:00 PM</p>
+  </div>
+</div>
 
 <script src="site.js"></script>
 

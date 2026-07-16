@@ -211,6 +211,114 @@
       el.style.scrollMarginTop = offset + 'px';
     });
   }
+
+  // ─── 7. Free drink coupon modal ────────────────────────────
+  // Wired by [data-free-drink-trigger] on any element (currently the
+  // Manteno Jul 17 show card). Opens the #free-drink-modal dialog.
+  // Closes on: X button, click on backdrop, Esc key. Locks body scroll
+  // while open and traps focus inside the dialog.
+  (function () {
+    const modal = document.getElementById('free-drink-modal');
+    if (!modal) return;
+    const triggers = document.querySelectorAll('[data-free-drink-trigger]');
+    if (!triggers.length) return;
+    const closers = modal.querySelectorAll('[data-free-drink-close]');
+    const dialog = modal.querySelector('.modal-dialog');
+    let lastFocused = null;
+
+    // Reserve space for the scrollbar before locking, so the page doesn't shift
+    function getScrollbarGutter() {
+      return window.innerWidth - document.documentElement.clientWidth;
+    }
+    function lockScroll() {
+      const gutter = getScrollbarGutter();
+      if (gutter > 0) {
+        document.body.style.setProperty('--scrollbar-gutter', gutter + 'px');
+      }
+      document.body.classList.add('modal-open');
+    }
+    function unlockScroll() {
+      document.body.classList.remove('modal-open');
+      document.body.style.removeProperty('--scrollbar-gutter');
+    }
+
+    function focusableInDialog() {
+      return Array.from(dialog.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+      )).filter((el) => !el.hasAttribute('disabled') && el.offsetParent !== null);
+    }
+
+    function open() {
+      lastFocused = document.activeElement;
+      modal.hidden = false;
+      // Force layout before transitioning
+      // eslint-disable-next-line no-unused-expressions
+      modal.offsetHeight;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      lockScroll();
+      // Focus the close button (sensible default for a passive modal)
+      const closeBtn = dialog.querySelector('.modal-close');
+      if (closeBtn) closeBtn.focus();
+      document.addEventListener('keydown', onKeydown);
+    }
+    function close() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      unlockScroll();
+      document.removeEventListener('keydown', onKeydown);
+      // Wait for transition end to hide, but if reduced-motion, hide immediately
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finalize = () => {
+        modal.hidden = true;
+        if (lastFocused && typeof lastFocused.focus === 'function') {
+          lastFocused.focus();
+        }
+        modal.removeEventListener('transitionend', finalize);
+      };
+      if (reduce) {
+        finalize();
+      } else {
+        modal.addEventListener('transitionend', finalize);
+        // Safety: if transitionend never fires (e.g., display:none), force-hide after 300ms
+        setTimeout(finalize, 300);
+      }
+    }
+    function onKeydown(e) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        close();
+        return;
+      }
+      // Basic focus trap on Tab
+      if (e.key === 'Tab') {
+        const f = focusableInDialog();
+        if (!f.length) return;
+        const first = f[0];
+        const last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
+    triggers.forEach((t) => {
+      t.addEventListener('click', (e) => {
+        e.preventDefault();
+        open();
+      });
+    });
+    closers.forEach((c) => {
+      c.addEventListener('click', (e) => {
+        e.preventDefault();
+        close();
+      });
+    });
+  })();
 })();
 
 // ─── 7. Booking form mailto builder ──────────────────────────
