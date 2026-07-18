@@ -201,6 +201,26 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       <img src="cover.jpg" alt="The Usual Suspects — full band lineup" class="hero-cover-img" loading="eager">
     </div>
 
+    <!-- FREE DRINK COUPON PROMO STRIP (high-visibility, top-of-page)
+         Shown only while the Manteno Jul 17 show is in the future. site.js
+         hides this whole block once the date passes. The same modal
+         (#free-drink-modal) opens from here AND from the Manteno show card
+         below — both buttons use [data-free-drink-trigger]. -->
+    <aside class="hero-coupon" id="hero-coupon" aria-label="Free drink coupon for the Manteno American Legion show on Friday July 17">
+      <div class="hero-coupon-inner">
+        <div class="hero-coupon-copy">
+          <span class="hero-coupon-eyebrow">🎟️ FRIDAY JULY 17 · MANTENO AMERICAN LEGION</span>
+          <h3 class="hero-coupon-h">First 10 fans get a free drink on us.</h3>
+          <p class="hero-coupon-sub">Limited to the first 10 fans, one per customer. Show the coupon at the bar.</p>
+        </div>
+        <div class="hero-coupon-action">
+          <button type="button" class="btn btn-coupon btn-large" data-free-drink-trigger aria-haspopup="dialog">
+            Get the coupon
+          </button>
+        </div>
+      </div>
+    </aside>
+
     <!-- BAND TAGLINE (text fallback if cover.jpg fails to load) -->
     <div class="logo-fallback" aria-hidden="true">
       <h1 class="logo-text">The Usual Suspects</h1>

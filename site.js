@@ -121,6 +121,25 @@
     }
   });
 
+  // ─── 5a. Hero coupon strip auto-hide ───────────────────────────
+  // The top-of-page #hero-coupon strip is for the Manteno Jul 17 show.
+  // When the Manteno show-card becomes .show-card-past, hide the strip too
+  // so visitors don't see a dead promo above the fold.
+  // Match the strip to the Manteno card via its show-date (JUL 17).
+  // If Buck swaps the promo to a different show, update this selector.
+  (function () {
+    const strip = document.getElementById('hero-coupon');
+    if (!strip) return;
+    const mantenoCard = Array.from(document.querySelectorAll('.show-card')).find((c) => {
+      const m = c.querySelector('.show-month')?.textContent.trim();
+      const d = c.querySelector('.show-day')?.textContent.trim();
+      return m === 'JUL' && d === '17';
+    });
+    if (mantenoCard && mantenoCard.classList.contains('show-card-past')) {
+      strip.classList.add('is-expired');
+    }
+  })();
+
   // ─── 5b. Countdown to next show ────────────────────────────
   // Reads the first non-past show-card in the DOM and ticks down to the
   // show date (8 PM local by default, parsed from the show-meta line when
