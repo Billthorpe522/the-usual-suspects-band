@@ -194,44 +194,22 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
   </div>
 </nav>
 
-<header class="hero" id="top">
+<header class="hero hero-slim" id="top">
   <div class="container">
-    <!-- COVER PHOTO -->
+    <!-- SLIM HERO: cover photo + 1-line tagline only.
+         The gigs + countdown now lead the page; pitch moves below. -->
     <div class="hero-cover">
       <img src="cover.jpg" alt="The Usual Suspects — full band lineup" class="hero-cover-img" loading="eager">
     </div>
 
-    <!-- FREE DRINK COUPON PROMO STRIP (high-visibility, top-of-page)
-         Shown only while the Manteno Jul 17 show is in the future. site.js
-         hides this whole block once the date passes. The same modal
-         (#free-drink-modal) opens from here AND from the Manteno show card
-         below — both buttons use [data-free-drink-trigger]. -->
-    <aside class="hero-coupon" id="hero-coupon" aria-label="Free drink coupon for the Manteno American Legion show on Friday July 17">
-      <div class="hero-coupon-inner">
-        <div class="hero-coupon-copy">
-          <span class="hero-coupon-eyebrow">🎟️ FRIDAY JULY 17 · MANTENO AMERICAN LEGION</span>
-          <h3 class="hero-coupon-h">First 10 fans get a free drink on us.</h3>
-          <p class="hero-coupon-sub">Limited to the first 10 fans, one per customer. Show the coupon at the bar.</p>
-        </div>
-        <div class="hero-coupon-action">
-          <button type="button" class="btn btn-coupon btn-large" data-free-drink-trigger aria-haspopup="dialog">
-            Get the coupon
-          </button>
-        </div>
-      </div>
-    </aside>
-
-    <!-- BAND TAGLINE (text fallback if cover.jpg fails to load) -->
     <div class="logo-fallback" aria-hidden="true">
       <h1 class="logo-text">The Usual Suspects</h1>
       <p class="logo-tag">music for all occasions</p>
     </div>
 
-    <!-- PRIMARY SEO HEADLINE (sits below the cover for search engines + venue bookers) -->
-    <div class="hero-pitch">
+    <div class="hero-pitch hero-pitch-compact">
       <p class="eyebrow">CLASSIC ROCK &amp; R&amp;B · SOUTH SUBURBS CHICAGO &amp; NW INDIANA</p>
       <h2 class="hero-h">Music for all occasions.</h2>
-      <p class="hero-sub">A five-piece cover band out of the south suburbs of Chicago playing the classic rock, R&amp;B, and country songs you've heard a thousand times and never get tired of. VFW halls, American Legion posts, bars, fall fests, private events. We bring the show; you bring the room.</p>
       <div class="hero-cta">
         <a href="#book" class="btn btn-primary">Book the band</a>
         <a href="#video" class="btn btn-ghost">Hear us play →</a>
@@ -239,10 +217,207 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       <p class="hero-upcoming"><span class="upcoming-dot" aria-hidden="true"></span><strong>Next up:</strong> Friday July 17 — Manteno American Legion. Open to the public.</p>
     </div>
   </div>
-
 </header>
 
 <main>
+
+  <!-- ─── UPCOMING SHOWS (calendar) — leads the page ──────────── -->
+  <!--
+    Each show is a <article class="show-card"> with date badge + venue info.
+    site.js auto-promotes cards within the next 60 days into "On the books" status.
+    For past shows: change .show-card class to .show-card .show-card-past and
+    they'll auto-sink to the bottom in faded style.
+    To mark a show SOLD OUT or CANCELLED, add .show-status-soldout or
+    .show-status-cancelled to the card.
+    Free drink coupon buttons live on every upcoming card; site.js promotes
+    the live card's button to a high-weight glowing state in the last hour
+    before showtime.
+  -->
+  <section class="section section-leads" id="shows">
+    <div class="container">
+      <span class="eyebrow">01 — ON THE BOOKS</span>
+      <h2>Where to catch us next.</h2>
+      <p class="section-lede">Public shows are free to attend unless noted. Private events and parties aren't listed — but if you're a venue or event planner, <a href="#book">drop us a line</a>.</p>
+
+      <!-- COUNTDOWN to next show — populated by site.js from the first non-past show-card -->
+      <div class="countdown" id="next-show-countdown" hidden>
+        <p class="countdown-label">Next show in</p>
+        <div class="countdown-grid">
+          <div class="countdown-cell">
+            <span class="countdown-num" data-unit="days">--</span>
+            <span class="countdown-unit">days</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" data-unit="hours">--</span>
+            <span class="countdown-unit">hours</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" data-unit="minutes">--</span>
+            <span class="countdown-unit">minutes</span>
+          </div>
+          <div class="countdown-cell">
+            <span class="countdown-num" data-unit="seconds">--</span>
+            <span class="countdown-unit">seconds</span>
+          </div>
+        </div>
+        <p class="countdown-target" id="countdown-target"></p>
+      </div>
+
+      <div class="shows-grid">
+
+        <article class="show-card" data-show-date="2026-07-17" data-show-time="20:00">
+          <div class="show-date">
+            <span class="show-month">JUL</span>
+            <span class="show-day">17</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">Manteno American Legion</h3>
+            <p class="show-meta">Friday · 8:00 PM – 11:30 PM · 13 S. Walnut St, Manteno, IL</p>
+            <p class="show-detail">Open to the public.</p>
+            <p class="show-cta-row">
+              <a href="https://www.facebook.com/share/1E9r4g5Meb/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Facebook share</a>
+              <button type="button" class="btn btn-coupon btn-small" data-free-drink-trigger aria-haspopup="dialog">
+                <span class="coupon-emoji" aria-hidden="true">🎟️</span> Free drink coupon
+              </button>
+            </p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <!-- cache-bust: frankfort-vfw-2026-08-08 -->
+        <article class="show-card" data-show-date="2026-08-08" data-show-time="19:00">
+          <div class="show-date">
+            <span class="show-month">AUG</span>
+            <span class="show-day">8</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">Frankfort VFW <span class="show-venue-sub">Post 1493</span></h3>
+            <p class="show-meta">Saturday · 7:00 PM – 10:00 PM · 22057 S Pfeiffer Rd, Frankfort, IL 60423</p>
+            <p class="show-detail">Open to the public. 815-469-1493 for venue info.</p>
+            <p class="show-cta-row">
+              <button type="button" class="btn btn-coupon btn-small" data-free-drink-trigger aria-haspopup="dialog">
+                <span class="coupon-emoji" aria-hidden="true">🎟️</span> Free drink coupon
+              </button>
+            </p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <!-- cache-bust: phantom-harley-2026-08-29 -->
+        <article class="show-card" data-show-date="2026-08-29" data-show-time="13:00">
+          <div class="show-date">
+            <span class="show-month">AUG</span>
+            <span class="show-day">29</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">Phantom Harley-Davidson</h3>
+            <p class="show-meta">Saturday · 1:00 PM – 4:00 PM · 291 N Cypress Dr, Manteno, IL 60950</p>
+            <p class="show-detail">Open to the public.</p>
+            <p class="show-cta-row">
+              <button type="button" class="btn btn-coupon btn-small" data-free-drink-trigger aria-haspopup="dialog">
+                <span class="coupon-emoji" aria-hidden="true">🎟️</span> Free drink coupon
+              </button>
+            </p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <article class="show-card" data-show-date="2026-09-19" data-show-time="14:00">
+          <div class="show-date">
+            <span class="show-month">SEP</span>
+            <span class="show-day">19</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
+            <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
+            <p class="show-detail">Open to the public. 815-485-4651 for venue info.</p>
+            <p class="show-cta-row">
+              <button type="button" class="btn btn-coupon btn-small" data-free-drink-trigger aria-haspopup="dialog">
+                <span class="coupon-emoji" aria-hidden="true">🎟️</span> Free drink coupon
+              </button>
+            </p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <!-- cache-bust: rickys-ride-2026-09-20 -->
+        <article class="show-card" data-show-date="2026-09-20" data-show-time="15:00">
+          <div class="show-date">
+            <span class="show-month">SEP</span>
+            <span class="show-day">20</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">New Image <span class="show-venue-sub">— Ricky's Ride after-party</span></h3>
+            <p class="show-meta">Sunday · 3:00 PM – 7:00 PM · 7815 W Lincoln Hwy, Frankfort, IL 60423</p>
+            <p class="show-detail">Bikes roll in at 3 from Ricky's Ride — we go till 7. Live music, raffles, food. Open to the public.</p>
+            <p class="show-cta-row">
+              <a href="https://rickysride.org/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">rickysride.org</a>
+              <a href="https://www.facebook.com/share/1Hf3btycsP/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Facebook share</a>
+              <button type="button" class="btn btn-coupon btn-small" data-free-drink-trigger aria-haspopup="dialog">
+                <span class="coupon-emoji" aria-hidden="true">🎟️</span> Free drink coupon
+              </button>
+            </p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <article class="show-card" data-show-date="2026-11-14" data-show-time="14:00">
+          <div class="show-date">
+            <span class="show-month">NOV</span>
+            <span class="show-day">14</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
+            <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
+            <p class="show-detail">Open to the public. 815-485-4651 for venue info.</p>
+            <p class="show-cta-row">
+              <button type="button" class="btn btn-coupon btn-small" data-free-drink-trigger aria-haspopup="dialog">
+                <span class="coupon-emoji" aria-hidden="true">🎟️</span> Free drink coupon
+              </button>
+            </p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <!--
+          Template for adding more shows (copy + paste + edit):
+          <article class="show-card" data-show-date="YYYY-MM-DD" data-show-time="HH:MM">
+            <div class="show-date">
+              <span class="show-month">MMM</span>
+              <span class="show-day">DD</span>
+              <span class="show-year">YYYY</span>
+            </div>
+            <div class="show-info">
+              <h3 class="show-venue">[VENUE NAME]</h3>
+              <p class="show-meta">[Day · Time · Address]</p>
+              <p class="show-detail">[Notes: open/private/cover/etc.]</p>
+              <p class="show-cta-row">
+                <button type="button" class="btn btn-coupon btn-small" data-free-drink-trigger aria-haspopup="dialog">
+                  <span class="coupon-emoji" aria-hidden="true">🎟️</span> Free drink coupon
+                </button>
+              </p>
+            </div>
+            <div class="show-badge show-badge-open">OPEN</div>
+          </article>
+        -->
+
+        <article class="show-card show-card-placeholder">
+          <div class="show-info">
+            <h3 class="show-venue">More dates added weekly</h3>
+            <p class="show-detail">Hit the Facebook page or drop your email — we'll send the next month's schedule as it locks in.</p>
+          </div>
+          <a class="btn btn-ghost btn-small" href="https://www.facebook.com/profile.php?id=100029619594462" target="_blank" rel="noopener">Follow on Facebook →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ─── WHAT WE PLAY ────────────────────────────────────────── -->
   <section class="section" id="what">
@@ -309,170 +484,10 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
 
   <!-- ─── UPCOMING SHOWS (calendar) ────────────────────────────── -->
   <!--
-    Each show is a <article class="show-card"> with date badge + venue info.
-    site.js auto-promotes cards within the next 60 days into "On the books" status.
-    For past shows: change .show-card class to .show-card .show-card-past and
-    they'll auto-sink to the bottom in faded style.
-    To mark a show SOLD OUT or CANCELLED, add .show-status-soldout or
-    .show-status-cancelled to the card.
+    MOVED TO TOP OF <main> in this branch (redesign/shows-on-top).
+    Original location retained as a placeholder so this patch stays small;
+    the live shows section is rendered above, right after the slim hero.
   -->
-  <section class="section" id="shows">
-    <div class="container">
-      <span class="eyebrow">04 — ON THE BOOKS</span>
-      <h2>Where to catch us next.</h2>
-      <p class="section-lede">Public shows are free to attend unless noted. Private events and parties aren't listed — but if you're a venue or event planner, <a href="#book">drop us a line</a>.</p>
-
-      <!-- COUNTDOWN to next show — populated by site.js from the first non-past show-card -->
-      <div class="countdown" id="next-show-countdown" hidden>
-        <p class="countdown-label">Next show in</p>
-        <div class="countdown-grid">
-          <div class="countdown-cell">
-            <span class="countdown-num" data-unit="days">--</span>
-            <span class="countdown-unit">days</span>
-          </div>
-          <div class="countdown-cell">
-            <span class="countdown-num" data-unit="hours">--</span>
-            <span class="countdown-unit">hours</span>
-          </div>
-          <div class="countdown-cell">
-            <span class="countdown-num" data-unit="minutes">--</span>
-            <span class="countdown-unit">minutes</span>
-          </div>
-          <div class="countdown-cell">
-            <span class="countdown-num" data-unit="seconds">--</span>
-            <span class="countdown-unit">seconds</span>
-          </div>
-        </div>
-        <p class="countdown-target" id="countdown-target"></p>
-      </div>
-
-      <div class="shows-grid">
-
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">JUL</span>
-            <span class="show-day">17</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">Manteno American Legion</h3>
-            <p class="show-meta">Friday · 8:00 PM – 11:30 PM · 13 S. Walnut St, Manteno, IL</p>
-            <p class="show-detail">Open to the public.</p>
-            <p class="show-cta-row">
-              <a href="https://www.facebook.com/share/1E9r4g5Meb/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Facebook share</a>
-              <button type="button" class="btn btn-coupon btn-small" data-free-drink-trigger aria-haspopup="dialog">
-                <span class="coupon-emoji" aria-hidden="true">🎟️</span> Free drink coupon
-              </button>
-            </p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <!-- cache-bust: frankfort-vfw-2026-08-08 -->
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">AUG</span>
-            <span class="show-day">8</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">Frankfort VFW <span class="show-venue-sub">Post 1493</span></h3>
-            <p class="show-meta">Saturday · 7:00 PM – 10:00 PM · 22057 S Pfeiffer Rd, Frankfort, IL 60423</p>
-            <p class="show-detail">Open to the public. 815-469-1493 for venue info.</p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <!-- cache-bust: phantom-harley-2026-08-29 -->
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">AUG</span>
-            <span class="show-day">29</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">Phantom Harley-Davidson</h3>
-            <p class="show-meta">Saturday · 1:00 PM – 4:00 PM · 291 N Cypress Dr, Manteno, IL 60950</p>
-            <p class="show-detail">Open to the public.</p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">SEP</span>
-            <span class="show-day">19</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
-            <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
-            <p class="show-detail">Open to the public. 815-485-4651 for venue info.</p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <!-- cache-bust: rickys-ride-2026-09-20 -->
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">SEP</span>
-            <span class="show-day">20</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">New Image <span class="show-venue-sub">— Ricky's Ride after-party</span></h3>
-            <p class="show-meta">Sunday · 3:00 PM – 7:00 PM · 7815 W Lincoln Hwy, Frankfort, IL 60423</p>
-            <p class="show-detail">Bikes roll in at 3 from Ricky's Ride — we go till 7. Live music, raffles, food. Open to the public.</p>
-            <p class="show-cta-row">
-              <a href="https://rickysride.org/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">rickysride.org</a>
-              <a href="https://www.facebook.com/share/1Hf3btycsP/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Facebook share</a>
-            </p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">NOV</span>
-            <span class="show-day">14</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
-            <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
-            <p class="show-detail">Open to the public. 815-485-4651 for venue info.</p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <!--
-          Template for adding more shows (copy + paste + edit):
-          <article class="show-card">
-            <div class="show-date">
-              <span class="show-month">MMM</span>
-              <span class="show-day">DD</span>
-              <span class="show-year">YYYY</span>
-            </div>
-            <div class="show-info">
-              <h3 class="show-venue">[VENUE NAME]</h3>
-              <p class="show-meta">[Day · Time · Address]</p>
-              <p class="show-detail">[Notes: open/private/cover/etc.]</p>
-            </div>
-            <div class="show-badge show-badge-open">OPEN</div>
-          </article>
-        -->
-
-        <article class="show-card show-card-placeholder">
-          <div class="show-info">
-            <h3 class="show-venue">More dates added weekly</h3>
-            <p class="show-detail">Hit the Facebook page or drop your email — we'll send the next month's schedule as it locks in.</p>
-          </div>
-          <a class="btn btn-ghost btn-small" href="https://www.facebook.com/profile.php?id=100029619594462" target="_blank" rel="noopener">Follow on Facebook →</a>
-        </article>
-
-      </div>
-    </div>
-  </section>
 
   <!-- ─── THE BAND ────────────────────────────────────────────── -->
 

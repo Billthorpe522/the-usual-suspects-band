@@ -121,23 +121,61 @@
     }
   });
 
-  // ─── 5a. Hero coupon strip auto-hide ───────────────────────────
-  // The top-of-page #hero-coupon strip is for the Manteno Jul 17 show.
-  // When the Manteno show-card becomes .show-card-past, hide the strip too
-  // so visitors don't see a dead promo above the fold.
-  // Match the strip to the Manteno card via its show-date (JUL 17).
-  // If Buck swaps the promo to a different show, update this selector.
+  // ─── 5a. Coupon promoter — 1-hour-before reveal ────────────────────
+  // Every upcoming show card now has a .btn-coupon trigger. Ticks every 30s;
+  // when the LIVE show (the first non-past .show-card) is within 60 minutes
+  // of its start time, its card's button gets .is-promoted + the card itself
+  // gets .coupon-promoted. CSS handles the larger leather-bronze + pulse.
+  // When the show starts, that card becomes .show-card-past and the rule
+  //   .show-card-past .btn-coupon { display: none }
+  // quietly retires the button.
   (function () {
-    const strip = document.getElementById('hero-coupon');
-    if (!strip) return;
-    const mantenoCard = Array.from(document.querySelectorAll('.show-card')).find((c) => {
-      const m = c.querySelector('.show-month')?.textContent.trim();
-      const d = c.querySelector('.show-day')?.textContent.trim();
-      return m === 'JUL' && d === '17';
-    });
-    if (mantenoCard && mantenoCard.classList.contains('show-card-past')) {
-      strip.classList.add('is-expired');
+    const cards = Array.from(document.querySelectorAll('.show-card'))
+      .filter((c) => !c.classList.contains('show-card-placeholder'));
+    if (!cards.length) return;
+    const months = { JAN:0,FEB:1,MAR:2,APR:3,MAY:4,JUN:5,JUL:6,AUG:7,SEP:8,OCT:9,NOV:10,DEC:11 };
+
+    function findLiveCard() {
+      const now = new Date();
+      for (const c of cards) {
+        if (c.classList.contains('show-card-past')) continue;
+        const d = c.getAttribute('data-show-date');  // YYYY-MM-DD
+        const t = c.getAttribute('data-show-time');  // HH:MM (24h)
+        if (!d || !t) continue;
+        const [Y, M, D] = d.split('-').map(Number);
+        const [h, m] = t.split(':').map(Number);
+        const showDate = new Date(Y, M - 1, D, h, m);
+        if (showDate >= now) return c;  // first upcoming = live
+      }
+      return null;
     }
+
+    function tick() {
+      const live = findLiveCard();
+      // First, strip promoted state from every card (so we never leave it stuck)
+      cards.forEach((c) => {
+        const btn = c.querySelector('.btn-coupon');
+        if (btn) btn.classList.remove('is-promoted');
+        c.classList.remove('coupon-promoted');
+      });
+      if (!live) return;
+      const d = live.getAttribute('data-show-date');
+      const t = live.getAttribute('data-show-time');
+      if (!d || !t) return;
+      const [Y, M, D] = d.split('-').map(Number);
+      const [h, m] = t.split(':').map(Number);
+      const showDate = new Date(Y, M - 1, D, h, m);
+      const ms = showDate - new Date();
+      // 60-minute window: 0 <= ms <= 60*60*1000
+      if (ms > 0 && ms <= 60 * 60 * 1000) {
+        const btn = live.querySelector('.btn-coupon');
+        if (btn) btn.classList.add('is-promoted');
+        live.classList.add('coupon-promoted');
+      }
+    }
+
+    tick();
+    setInterval(tick, 30 * 1000);  // every 30s — will also be triggered by tick() when modal opens
   })();
 
   // ─── 5b. Countdown to next show ────────────────────────────
@@ -267,7 +305,31 @@
       )).filter((el) => !el.hasAttribute('disabled') && el.offsetParent !== null);
     }
 
-    function open() {
+    function setFootLineFor(triggerEl) {
+      // Build "Valid Friday, July 17 · Manteno American Legion · 8:00 PM"
+      // from the show-card containing triggerEl. Falls back to the static
+      // foot line already in markup if the trigger isn't on a card.
+      const foot = modal.querySelector('.modal-foot');
+      if (!foot) return;
+      const card = triggerEl?.closest('.show-card');
+      if (!card || card.classList.contains('show-card-placeholder')) return;
+      const venue = card.querySelector('.show-venue')?.textContent.replace(/\s+/g,' ').trim() || '';
+      const meta = card.querySelector('.show-meta')?.textContent.replace(/\s+/g,' ').trim() || '';
+      // Meta is "Friday · 8:00 PM – 11:30 PM · 13 S. Walnut St, Manteno, IL"
+      // Pull Day, StartTime, then strip everything after.
+      const m = meta.match(/^([A-Za-z]+)\s+·\s+(\d{1,2}:\d{2}\s*[AP]M)/);
+      if (!m) return;
+      const dayName = m[1];
+      const startTime = m[2].replace(/\s+/g, ' ');
+      const dateMatch = card.getAttribute('data-show-date');  // YYYY-MM-DD
+      if (!dateMatch) return;
+      const [, Mo, Dy] = dateMatch.split('-').map(Number);
+      const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      foot.textContent = `Valid ${dayName}, ${monthNames[Mo-1]} ${Dy} · ${venue} · ${startTime}`;
+    }
+
+    function open(triggerEl) {
+      if (triggerEl) setFootLineFor(triggerEl);
       lastFocused = document.activeElement;
       modal.hidden = false;
       // Force layout before transitioning
@@ -328,7 +390,7 @@
     triggers.forEach((t) => {
       t.addEventListener('click', (e) => {
         e.preventDefault();
-        open();
+        open(t);
       });
     });
     closers.forEach((c) => {
