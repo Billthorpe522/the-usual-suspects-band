@@ -1,0 +1,14 @@
+# security.txt — RFC 9116
+# A file security researchers and automated scanners look up at
+# /.well-known/security.txt before reporting a vulnerability.
+# Plain contact info, no copy. Reviewed annually.
+
+Contact: mailto:buck956@att.net
+Contact: https://m.me/TheUsualSuspectsBand
+Preferred-Languages: en
+Canonical: https://playtheusualsuspects.com/.well-known/security.txt
+Expires: 2027-07-19T00:00:00Z
+
+# This band site is a static GitHub Pages deployment.
+# We don't run a server, don't store user accounts, and don't process payments.
+# Reports about phishing, defamation, or content issues reach us best via Messenger.
