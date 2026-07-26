@@ -1420,7 +1420,7 @@ a:hover {
 
 /* ──────────────────────────────────────────────────────────────
    FREE DRINK COUPON — trigger button + modal
-   Triggered by [data-free-drink-trigger] on the Manteno Jul 17 card.
+   Triggered by [data-free-drink-trigger] on any upcoming show card.
    site.js wires open/close. Auto-hides when the parent .show-card
    becomes .show-card-past (date has passed).
    ────────────────────────────────────────────────────────────── */
