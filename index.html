@@ -179,25 +179,8 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
     </div>
 
     <!-- FREE DRINK COUPON PROMO STRIP (high-visibility, top-of-page)
-         Currently tied to the next upcoming show. site.js hides this whole
-         block once the show's date passes. The same modal (#free-drink-modal)
-         opens from here AND from any show card below — both use
-         [data-free-drink-trigger]. -->
-    <aside class="hero-coupon" id="hero-coupon" aria-label="Free drink coupon for the Frankfort VFW Post 1493 show on Saturday August 8">
-      <div class="hero-coupon-inner">
-        <div class="hero-coupon-copy">
-          <span class="hero-coupon-eyebrow">🎟️ SATURDAY AUGUST 8 · FRANKFORT VFW POST 1493</span>
-          <h3 class="hero-coupon-h">Free drink on us for the first 10 to show up.</h3>
-          <p class="hero-coupon-sub">Saturday, August 8 at the Frankfort VFW. Show this at the bar and tell the bartender we're sending you.</p>
-          <p class="hero-coupon-fineprint">Valid after 7:00 PM.</p>
-        </div>
-        <div class="hero-coupon-action">
-          <button type="button" class="btn btn-coupon btn-large" data-free-drink-trigger aria-haspopup="dialog">
-            Get the coupon
-          </button>
-        </div>
-      </div>
-    </aside>
+         Hidden until the next coupon-eligible show is booked. To re-enable:
+         restore the <aside class="hero-coupon"> block and update dates/venue. -->
 
     <!-- BAND TAGLINE (text fallback if cover.jpg fails to load) -->
     <div class="logo-fallback" aria-hidden="true">
@@ -214,7 +197,7 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         <a href="#book" class="btn btn-primary">Book the band</a>
         <a href="#video" class="btn btn-ghost">Hear us play →</a>
       </div>
-      <p class="hero-upcoming"><span class="upcoming-dot" aria-hidden="true"></span><strong>Next up:</strong> Saturday August 8 — Frankfort VFW Post 1493. Open to the public.</p>
+      <p class="hero-upcoming"><span class="upcoming-dot" aria-hidden="true"></span><strong>Next up:</strong> Sunday August 16 — The Chill House, Frankfort. Open to the public.</p>
     </div>
   </div>
 
@@ -326,17 +309,17 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
 
       <div class="shows-grid">
 
-        <!-- cache-bust: frankfort-vfw-2026-08-08 -->
+        <!-- cache-bust: chill-house-2026-08-16 -->
         <article class="show-card">
           <div class="show-date">
             <span class="show-month">AUG</span>
-            <span class="show-day">8</span>
+            <span class="show-day">16</span>
             <span class="show-year">2026</span>
           </div>
           <div class="show-info">
-            <h3 class="show-venue">Frankfort VFW <span class="show-venue-sub">Post 1493</span></h3>
-            <p class="show-meta">Saturday · 7:00 PM – 10:00 PM · 22057 S Pfeiffer Rd, Frankfort, IL 60423</p>
-            <p class="show-detail">Open to the public. 815-469-1493 for venue info.</p>
+            <h3 class="show-venue">The Chill House</h3>
+            <p class="show-meta">Sunday · 3:00 PM – 6:00 PM · 7900 W Lincoln Hwy, Frankfort, IL 60423</p>
+            <p class="show-detail">Open to the public. 815-333-6034 for venue info.</p>
           </div>
           <div class="show-badge show-badge-open">OPEN</div>
         </article>
@@ -426,7 +409,6 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
           <div class="show-badge show-badge-open">OPEN</div>
         </article>
 
-        <article class="show-card">
         <article class="show-card">
           <div class="show-date">
             <span class="show-month">NOV</span>
