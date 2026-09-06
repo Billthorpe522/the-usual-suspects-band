@@ -11,7 +11,7 @@
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://playtheusualsuspects.com/">
 
-<!-- Favicon set — bandana + sunglasses mark cropped from logo.jpg -->
+
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="shortcut icon" href="/favicon.ico">
@@ -19,31 +19,14 @@
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#000000">
 
-<!-- Plausible Analytics (privacy-friendly, cookie-free) -->
-<!-- To activate: sign up at plausible.io with domain `playtheusualsuspects.com`, then the script below will start recording. No further code change needed. -->
+
+
 <script defer data-domain="playtheusualsuspects.com" src="https://plausible.io/js/script.js"></script>
 
-<!-- Facebook Pixel (Meta conversion tracking) -->
-<!-- To activate: get Pixel ID from https://business.facebook.com/events-manager → Pixels, then replace YOUR_PIXEL_ID below with the 15-digit ID. -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', 'YOUR_PIXEL_ID');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-/></noscript>
 
-<!-- Schema.org structured data: MusicGroup + LocalBusiness + Event -->
-<script type="application/ld+json">
-{
+
+
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -55,23 +38,54 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       "url": "https://playtheusualsuspects.com/",
       "image": "https://playtheusualsuspects.com/cover.jpg",
       "logo": "https://playtheusualsuspects.com/logo.jpg",
-      "genre": ["Classic Rock", "R&B", "Country", "Southern Rock"],
+      "genre": [
+        "Classic Rock",
+        "R&B",
+        "Country",
+        "Southern Rock"
+      ],
       "member": [
-        {"@type": "Person", "name": "Steve \"Buck\" Dennison", "roleName": "Lead vocals, Guitar, Booking"},
-        {"@type": "Person", "name": "Frank Gatto", "roleName": "Guitar"},
-        {"@type": "Person", "name": "Jim \"Crash\" Mihalovich", "roleName": "Drums, Backing vocals"},
-        {"@type": "Person", "name": "Bill Thorpe", "roleName": "Bass, Vocals"},
-        {"@type": "Person", "name": "Billy Thorpe", "roleName": "Guitar, Recording, Video"}
+        {
+          "@type": "Person",
+          "name": "Steve \"Buck\" Dennison",
+          "roleName": "Lead vocals, Guitar, Booking"
+        },
+        {
+          "@type": "Person",
+          "name": "Frank Gatto",
+          "roleName": "Guitar"
+        },
+        {
+          "@type": "Person",
+          "name": "Jim \"Crash\" Mihalovich",
+          "roleName": "Drums, Backing vocals"
+        },
+        {
+          "@type": "Person",
+          "name": "Bill Thorpe",
+          "roleName": "Bass, Vocals"
+        },
+        {
+          "@type": "Person",
+          "name": "Billy Thorpe",
+          "roleName": "Guitar, Recording, Video"
+        }
       ],
       "areaServed": [
-        {"@type": "AdministrativeArea", "name": "Chicago South Suburbs, IL"},
-        {"@type": "AdministrativeArea", "name": "Northwest Indiana"}
+        {
+          "@type": "AdministrativeArea",
+          "name": "Chicago South Suburbs, IL"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Northwest Indiana"
+        }
       ]
     },
     {
       "@type": "LocalBusiness",
       "@id": "https://playtheusualsuspects.com/#business",
-      "name": "The Usual Suspects — Live Band Booking",
+      "name": "The Usual Suspects \u2014 Live Band Booking",
       "image": "https://playtheusualsuspects.com/cover.jpg",
       "logo": "https://playtheusualsuspects.com/logo.jpg",
       "url": "https://playtheusualsuspects.com/",
@@ -85,18 +99,25 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         "addressCountry": "US"
       },
       "areaServed": [
-        {"@type": "City", "name": "Frankfort, IL"},
-        {"@type": "City", "name": "Bradley, IL"},
-        {"@type": "City", "name": "Manteno, IL"},
-        {"@type": "City", "name": "Dyer, IN"},
-        {"@type": "City", "name": "Chicago South Suburbs"}
-      ],
-      "openingHoursSpecification": [
         {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Friday", "Saturday"],
-          "opens": "19:00",
-          "closes": "23:30"
+          "@type": "City",
+          "name": "Frankfort, IL"
+        },
+        {
+          "@type": "City",
+          "name": "Bradley, IL"
+        },
+        {
+          "@type": "City",
+          "name": "Manteno, IL"
+        },
+        {
+          "@type": "City",
+          "name": "Dyer, IN"
+        },
+        {
+          "@type": "City",
+          "name": "Chicago South Suburbs"
         }
       ],
       "sameAs": [
@@ -107,14 +128,14 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
     {
       "@type": "Event",
       "@id": "https://playtheusualsuspects.com/#newlenox-sept-19",
-      "name": "The Usual Suspects — Live at New Lenox American Legion",
-      "startDate": "2026-09-19T14:00",
-      "endDate": "2026-09-19T18:00",
+      "name": "The Usual Suspects \u2014 Live at New Lenox American Legion",
+      "startDate": "2026-09-19T14:00-05:00",
+      "endDate": "2026-09-19T18:00-05:00",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
       "location": {
         "@type": "Place",
-        "name": "New Lenox American Legion — Thomas E. Hartung Post 1977",
+        "name": "New Lenox American Legion \u2014 Thomas E. Hartung Post 1977",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "14414 W. Ford Dr",
@@ -127,19 +148,19 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       "performer": {
         "@id": "https://playtheusualsuspects.com/#band"
       },
-      "description": "Saturday afternoon set — live classic rock, R&B, and country at the New Lenox American Legion. Open to the public."
+      "description": "Saturday afternoon set \u2014 live classic rock, R&B, and country at the New Lenox American Legion. Open to the public."
     },
     {
       "@type": "Event",
       "@id": "https://playtheusualsuspects.com/#newlenox-nov-14",
-      "name": "The Usual Suspects — Live at New Lenox American Legion",
-      "startDate": "2026-11-14T14:00",
-      "endDate": "2026-11-14T18:00",
+      "name": "The Usual Suspects \u2014 Live at New Lenox American Legion",
+      "startDate": "2026-11-14T14:00-06:00",
+      "endDate": "2026-11-14T18:00-06:00",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
       "location": {
         "@type": "Place",
-        "name": "New Lenox American Legion — Thomas E. Hartung Post 1977",
+        "name": "New Lenox American Legion \u2014 Thomas E. Hartung Post 1977",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "14414 W. Ford Dr",
@@ -152,11 +173,10 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       "performer": {
         "@id": "https://playtheusualsuspects.com/#band"
       },
-      "description": "Saturday afternoon event — live classic rock, R&B, and country at the New Lenox American Legion. Open to the public."
+      "description": "Saturday afternoon event \u2014 live classic rock, R&B, and country at the New Lenox American Legion. Open to the public."
     }
   ]
-}
-</script>
+}</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,82 +184,49 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
 <link rel="stylesheet" href="site.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ─── STICKY NAV ─────────────────────────────────────────── -->
+
 <nav class="site-nav" aria-label="Primary">
   <div class="container site-nav-inner">
     <a href="#top" class="site-nav-brand">The Usual Suspects</a>
     <button class="site-nav-toggle" aria-expanded="false" aria-controls="site-nav-list">Menu</button>
     <ul class="site-nav-list" id="site-nav-list">
-      <li><a href="#video">Video</a></li>
+      <li><a href="#video">Watch live</a></li>
       <li><a href="#shows">Shows</a></li>
-      <li><a href="#band">Band</a></li>
+      <li><a href="#gallery">Photos</a></li>
+      <li><a href="#band">The band</a></li>
       <li><a href="#book" class="site-nav-cta">Book</a></li>
     </ul>
   </div>
 </nav>
 
 <header class="hero" id="top">
-  <div class="container">
-    <!-- COVER PHOTO -->
-    <div class="hero-cover">
-      <img src="cover.jpg" alt="The Usual Suspects — full band lineup" class="hero-cover-img" loading="eager">
-    </div>
-
-    <!-- FREE DRINK COUPON PROMO STRIP (high-visibility, top-of-page)
-         Hidden until the next coupon-eligible show is booked. To re-enable:
-         restore the <aside class="hero-coupon"> block and update dates/venue. -->
-
-    <!-- BAND TAGLINE (text fallback if cover.jpg fails to load) -->
-    <div class="logo-fallback" aria-hidden="true">
-      <h1 class="logo-text">The Usual Suspects</h1>
-      <p class="logo-tag">music for all occasions</p>
-    </div>
-
-    <!-- PRIMARY SEO HEADLINE (sits below the cover for search engines + venue bookers) -->
+  <div class="container hero-grid">
     <div class="hero-pitch">
-      <p class="eyebrow">CLASSIC ROCK &amp; R&amp;B · SOUTH SUBURBS CHICAGO &amp; NW INDIANA</p>
-      <h2 class="hero-h">Music for all occasions.</h2>
-      <p class="hero-sub">A five-piece cover band out of the south suburbs of Chicago playing the classic rock, R&amp;B, and country songs you've heard a thousand times and never get tired of. VFW halls, American Legion posts, bars, fall fests, private events. We bring the show; you bring the room.</p>
-      <div class="hero-cta">
-        <a href="#book" class="btn btn-primary">Book the band</a>
-        <a href="#video" class="btn btn-ghost">Hear us play →</a>
-      </div>
-      <p class="hero-upcoming"><span class="upcoming-dot" aria-hidden="true"></span><strong>Next up:</strong> Saturday September 19 — New Lenox American Legion Post 1977 (Bikes, Brews, and BBQ). 2 – 6 PM. Open to the public.</p>
+      <p class="eyebrow">Chicagoland &amp; Northwest Indiana</p>
+      <h1>The Usual<br><em>Suspects.</em></h1>
+      <p class="hero-genres">Classic rock. R&amp;B. A little country.</p>
+      <p class="hero-sub">Five guys. Songs you know by heart. One hell of a good night. We bring the show; you bring the room.</p>
+      <div class="hero-cta"><a href="#video" class="btn btn-primary">Watch us live ↗</a><a href="#book" class="btn btn-ghost">Book the band</a></div>
     </div>
+    <figure class="hero-cover"><img src="cover.jpg" alt="The Usual Suspects and friends together at a gig" class="hero-cover-img" fetchpriority="high"><figcaption>Music for all occasions. Good company included.</figcaption></figure>
+    <a class="next-show" href="#shows" id="hero-next"><span class="eyebrow">Next show</span><strong>See what’s on the books</strong><span>Dates, times &amp; directions →</span></a>
   </div>
-
 </header>
 
-<main>
-
-  <!-- ─── WHAT WE PLAY ────────────────────────────────────────── -->
-  <section class="section" id="what">
+<main id="main">
+<section class="section section-alt" id="video">
     <div class="container">
-      <span class="eyebrow">01 — THE STUFF</span>
-      <h2>Classic rock, R&amp;B, and a touch of country.</h2>
-      <p class="section-lede">A five-piece built to keep a room full. Standards from the Southern rock canon, a few country classics, some R&amp;B you'd forgotten you loved, and one slow burn to close it out. The set list shifts with the room — that's the whole point of a cover band that's played the same songs a thousand times.</p>
-    </div>
-  </section>
-
-  <!-- ─── LIVE FOOTAGE ─────────────────────────────────────────── -->
-  <!--
-    Primary player = YouTube embed (always works, free hosting).
-    Local fallback = if video/reel.mp4 exists in the workspace, site.js swaps
-    the YouTube iframe for a <video controls> tag pointing at the local file.
-    Update the data-src on the wrapper to change the file path.
-  -->
-  <section class="section section-alt" id="video">
-    <div class="container">
-      <span class="eyebrow">02 — LIVE FOOTAGE</span>
-      <h2>The proof.</h2>
+      <span class="eyebrow">01 — LIVE &amp; LOUD</span>
+      <h2>This is what we sound like.</h2>
       <p class="section-lede">A full set recorded at the Frankfort VFW Post 1493 — the kind of room we play most weekends. Filmed with a GoPro. Mixed live. This is what the band actually sounds like.</p>
 
-      <div class="video-wrap" data-youtube="DEuKudX_Gk4" data-local="video/reel.mp4">
+      <div class="video-wrap" data-youtube="DEuKudX_Gk4">
         <div class="video-frame">
-          <!-- YouTube is the default. site.js replaces this iframe with a local <video> if video/reel.mp4 exists. -->
+
           <iframe
-            src="https://www.youtube.com/embed/DEuKudX_Gk4"
+            loading="lazy" src="https://www.youtube.com/embed/DEuKudX_Gk4"
             title="The Usual Suspects live at Frankfort VFW 1493"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -249,13 +236,194 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       </div>
 
       <p class="video-credit">Filmed live in one take, no edits — set list and timestamps in the description. <a href="https://www.youtube.com/watch?v=DEuKudX_Gk4" target="_blank" rel="noopener">Watch on YouTube →</a></p>
+      <div id="song-clips" class="clip-grid" hidden></div>
+      <div class="media-follow"><div><h3>More nights. More music.</h3><p>Live sets and song clips from Brass Boot Studio.</p></div><a class="btn btn-ghost" href="https://www.youtube.com/@brassbootstudio" target="_blank" rel="noopener">Visit Brass Boot Studio ↗</a></div>
     </div>
   </section>
-
-  <!-- ─── IN THE PRESS ─────────────────────────────────────────── -->
-  <section class="section" id="press">
+<section class="section" id="shows">
     <div class="container">
-      <span class="eyebrow">03 — IN THE PRESS</span>
+      <span class="eyebrow">02 — ON THE BOOKS</span>
+      <h2>Where to catch us next.</h2>
+      <p class="section-lede">Public shows are free to attend unless noted. Private events and parties aren't listed — but if you're a venue or event planner, <a href="#book">drop us a line</a>.</p>
+
+
+      <p class="schedule-note">All times Central. Check with the venue for admission and event updates.</p><div class="shows-grid">
+
+        <article class="show-card" id="show-1" data-start="2026-09-19T14:00:00-05:00" data-end="2026-09-19T18:00:00-05:00">
+        <div class="show-date">
+          <span class="show-month">SEP</span>
+          <span class="show-day">19</span>
+          <span class="show-year">2026</span>
+        </div>
+        <div class="show-info">
+          <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
+          <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
+          <p class="show-detail">Open to the public. 815-485-4651 for venue info.</p>
+
+          <p class="show-flyer-wrap">
+            <a href="newlenox-sep-19-flyer.jpg" target="_blank" rel="noopener" aria-label="Open Bikes, Brews, and BBQ flyer full size">
+              <img src="newlenox-sep-19-flyer-thumb.jpg" alt="Bikes, Brews, and BBQ — American Legion Riders Post 1977, New Lenox, Saturday September 19, 2026. Live music by The Usual Suspects from 2-6pm." class="show-flyer" width="280" height="417" loading="lazy">
+              <span class="show-flyer-cta">View full flyer →</span>
+            </a>
+          </p>
+        </div>
+        <div class="show-badge show-badge-open">OPEN</div>
+      </article>
+
+
+        <article class="show-card" id="show-2" data-start="2026-09-20T15:00:00-05:00" data-end="2026-09-20T19:00:00-05:00">
+          <div class="show-date">
+            <span class="show-month">SEP</span>
+            <span class="show-day">20</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">New Image <span class="show-venue-sub">— Ricky's Ride after-party</span></h3>
+            <p class="show-meta">Sunday · 3:00 PM – 7:00 PM · 7815 W Lincoln Hwy, Frankfort, IL 60423</p>
+            <p class="show-detail">Bikes roll in at 3 from Ricky's Ride — we go till 7. Live music, raffles, food. Open to the public.</p>
+            <p class="show-cta-row">
+              <a href="https://rickysride.org/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">rickysride.org</a>
+              <a href="https://www.facebook.com/share/1Hf3btycsP/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Facebook share</a>
+            </p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+
+        <article class="show-card" id="show-3" data-start="2026-10-03T20:00:00-05:00" data-end="2026-10-03T23:00:00-05:00">
+          <div class="show-date">
+            <span class="show-month">OCT</span>
+            <span class="show-day">3</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">Tru Country <span class="show-venue-sub">Bar &amp; Grill · Channahon</span></h3>
+            <p class="show-meta">Saturday · 8:00 PM – 11:00 PM · 25365 S Fryer St, Channahon, IL 60410</p>
+            <p class="show-detail">Open to the public. 815-290-5075 for venue info.</p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+        <article class="show-card" id="show-4" data-start="2026-11-14T14:00:00-06:00" data-end="2026-11-14T18:00:00-06:00">
+          <div class="show-date">
+            <span class="show-month">NOV</span>
+            <span class="show-day">14</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
+            <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
+            <p class="show-detail">Open to the public. 815-485-4651 for venue info.</p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+
+        <article class="show-card" id="show-5" data-start="2026-12-05T20:00:00-06:00" data-end="2026-12-05T23:00:00-06:00">
+          <div class="show-date">
+            <span class="show-month">DEC</span>
+            <span class="show-day">5</span>
+            <span class="show-year">2026</span>
+          </div>
+          <div class="show-info">
+            <h3 class="show-venue">Tru Country <span class="show-venue-sub">Bar &amp; Grill · New Lenox</span></h3>
+            <p class="show-meta">Saturday · 8:00 PM – 11:00 PM · 222 W Maple St, New Lenox, IL 60451</p>
+            <p class="show-detail">Open to the public. 815-717-8677 for venue info.</p>
+          </div>
+          <div class="show-badge show-badge-open">OPEN</div>
+        </article>
+
+
+
+        <article class="show-card show-card-placeholder">
+          <div class="show-info">
+            <h3 class="show-venue">More nights on the way</h3>
+            <p class="show-detail">Follow the band for new dates and show updates.</p>
+          </div>
+          <a class="btn btn-ghost btn-small" href="https://www.facebook.com/profile.php?id=100029619594462" target="_blank" rel="noopener">Follow on Facebook →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+<section class="section section-alt" id="gallery"><div class="container"><span class="eyebrow">03 — FROM THE ROOM</span><h2>A good night looks like this.</h2><p class="section-lede">The people behind the sound. Tap a photo for a closer look.</p><div class="gallery-grid"><a href="photos/buck-photo.jpg" data-gallery><img src="photos/buck-photo.jpg" alt="Buck on lead vocals and guitar" loading="lazy"><span>Buck on lead vocals and guitar ↗</span></a><a href="photos/frank-photo.jpg" data-gallery><img src="photos/frank-photo.jpg" alt="Frank on guitar" loading="lazy"><span>Frank on guitar ↗</span></a><a href="photos/jim-photo.jpg" data-gallery><img src="photos/jim-photo.jpg" alt="Crash behind the kit" loading="lazy"><span>Crash behind the kit ↗</span></a><a href="photos/bass-photo.jpg" data-gallery><img src="photos/bass-photo.jpg" alt="Bill holding down the low end" loading="lazy"><span>Bill holding down the low end ↗</span></a><a href="photos/billy-photo.jpg" data-gallery><img src="photos/billy-photo.jpg" alt="Billy on guitar" loading="lazy"><span>Billy on guitar ↗</span></a></div></div></section>
+<section class="section" id="band">
+    <div class="container">
+      <span class="eyebrow">04 — THE BAND</span>
+      <h2>Meet the Band</h2>
+
+      <div class="band-grid">
+        <article class="band-card">
+          <img src="photos/buck-photo.jpg" alt="Steve &quot;Buck&quot; Dennison in a Harley-Davidson shirt playing sunburst Stratocaster" class="band-photo" loading="lazy">
+          <h3>Steve "Buck" Dennison</h3>
+          <p class="band-role">Lead vocals · Guitar · Booking</p>
+          <p class="band-blurb">Frontman, calls the gigs, owns the room. The guy you talk to when you're booking. Want to hear it? He'll probably know it — request just about anything and chances are he's got it ready.</p>
+        </article>
+        <article class="band-card">
+          <img src="photos/frank-photo.jpg" alt="Frank Gatto laughing while playing gold-top Les Paul" class="band-photo" loading="lazy">
+          <h3>Frank Gatto</h3>
+          <p class="band-role">Guitar</p>
+          <p class="band-blurb">Three decades of playing out, teaching, and selling behind the counter at music stores — and a luthier at Gatto Guitars. One of the best guitar players you'll ever meet, and most people in the room already know it.</p>
+        </article>
+        <article class="band-card">
+          <img src="photos/jim-photo.jpg" alt="Jim 'Crash' Mihalovich at his drum kit under blue stage lighting" class="band-photo" loading="lazy">
+          <h3>Jim "Crash" Mihalovich</h3>
+          <p class="band-role">Drums · Backing vocals</p>
+          <p class="band-blurb">Been playing drums his whole life — since before he could reach the pedals. A veteran, a lifelong baseball fan, and the kind of drummer every band wishes they had. Local bands, road gigs, every kind of room you can name. The reason the rest of the band sounds tight without ever asking for the spotlight.</p>
+        </article>
+        <article class="band-card">
+          <img src="photos/bass-photo.jpg" alt="Bill Thorpe playing fretless bass with eyes closed" class="band-photo" loading="lazy">
+          <h3>Bill Thorpe</h3>
+          <p class="band-role">Bass · Vocals</p>
+          <p class="band-blurb">A working musician for over 40 years. Multi-instrumentalist — bass, violin, and whatever else the night calls for. Wedding bands, bars, VFW halls, American Legion rooms, festival stages. He's played them all and he still shows up early.</p>
+        </article>
+        <article class="band-card">
+          <img src="photos/billy-photo.jpg" alt="Billy Thorpe playing white Fender Stratocaster on an outdoor stage, eyes down on his hands mid-riff" class="band-photo" loading="lazy">
+          <h3>Billy Thorpe</h3>
+          <p class="band-role">Guitar · Recording &amp; Video</p>
+          <p class="band-blurb">An all-around guitarist who handles the band's recording and video — and built this website. Son of bassist Bill Thorpe; every time he's on stage, there's a Thorpe holding down the bass end too.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+<section class="section section-alt" id="venues">
+    <div class="container">
+      <span class="eyebrow">05 — ROOMS WE'VE WORKED</span>
+      <h2>A few of the venues.</h2>
+
+      <div class="venues-grid">
+        <div class="venue-card">
+          <h3>Frankfort VFW Post 1493</h3>
+          <p>Frankfort, IL · VFW hall · full band sets</p>
+        </div>
+        <div class="venue-card">
+          <h3>Bradley American Legion – Post 766</h3>
+          <p>Bradley, IL · American Legion · parties + private events</p>
+        </div>
+        <div class="venue-card">
+          <h3>Manteno American Legion</h3>
+          <p>Manteno, IL · American Legion · regular sets</p>
+        </div>
+        <div class="venue-card">
+          <h3>New Lenox American Legion <span class="venue-sub">Post 1977</span></h3>
+          <p>New Lenox, IL · American Legion · afternoon sets</p>
+        </div>
+        <div class="venue-card">
+          <h3>White Rhino Bar &amp; Grill</h3>
+          <p>Dyer, IN · bar · food + drinks</p>
+        </div>
+        <div class="venue-card-placeholder">
+          <p>More rooms coming — venues drop us a line if you'd like to be listed here.</p>
+        </div>
+        <div class="venue-card-placeholder">
+          <p>Booking inquiries get a response within 24 hours. <a href="#book">See contact below →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="section" id="press">
+    <div class="container">
+      <span class="eyebrow">06 — OFF THE STAGE</span>
       <h2>An hour on the Rock n Roll Chicago Podcast.</h2>
       <p class="section-lede">Buck, Jimmy, and Frank sat down with the hosts of the Rock n Roll Chicago Podcast at the Joliet Rock and Roll Hall of Fame museum. The band interviewed the hosts about themselves, played some music, and talked shop for an hour. Episode 284 — "The Usual Suspects."</p>
 
@@ -275,268 +443,23 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       <p class="video-credit">Recorded at the Joliet Rock and Roll Hall of Fame museum. <a href="https://open.spotify.com/episode/3EQIDdWY9Bo3IjEeIB695q" target="_blank" rel="noopener">Listen on Spotify →</a></p>
     </div>
   </section>
-
-  <!-- ─── UPCOMING SHOWS (calendar) ────────────────────────────── -->
-  <!--
-    Each show is a <article class="show-card"> with date badge + venue info.
-    site.js auto-promotes cards within the next 60 days into "On the books" status.
-    For past shows: change .show-card class to .show-card .show-card-past and
-    they'll auto-sink to the bottom in faded style.
-    To mark a show SOLD OUT or CANCELLED, add .show-status-soldout or
-    .show-status-cancelled to the card.
-  -->
-  <section class="section" id="shows">
+<section class="section section-cta" id="book">
     <div class="container">
-      <span class="eyebrow">04 — ON THE BOOKS</span>
-      <h2>Where to catch us next.</h2>
-      <p class="section-lede">Public shows are free to attend unless noted. Private events and parties aren't listed — but if you're a venue or event planner, <a href="#book">drop us a line</a>.</p>
-
-      <!-- COUNTDOWN to next show — populated by site.js from the first non-past show-card -->
-      <div class="countdown" id="next-show-countdown" hidden>
-        <p class="countdown-label">Next show in</p>
-        <div class="countdown-grid">
-          <div class="countdown-cell">
-            <span class="countdown-num" data-unit="days">--</span>
-            <span class="countdown-unit">days</span>
-          </div>
-          <div class="countdown-cell">
-            <span class="countdown-num" data-unit="hours">--</span>
-            <span class="countdown-unit">hours</span>
-          </div>
-          <div class="countdown-cell">
-            <span class="countdown-num" data-unit="minutes">--</span>
-            <span class="countdown-unit">minutes</span>
-          </div>
-          <div class="countdown-cell">
-            <span class="countdown-num" data-unit="seconds">--</span>
-            <span class="countdown-unit">seconds</span>
-          </div>
-        </div>
-        <p class="countdown-target" id="countdown-target"></p>
-      </div>
-
-      <div class="shows-grid">
-
-        <article class="show-card">
-        <div class="show-date">
-          <span class="show-month">SEP</span>
-          <span class="show-day">19</span>
-          <span class="show-year">2026</span>
-        </div>
-        <div class="show-info">
-          <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
-          <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
-          <p class="show-detail">Open to the public. 815-485-4651 for venue info.</p>
-          <!-- cache-bust: newlenox-sep-19-flyer-2026-09-19 -->
-          <p class="show-flyer-wrap">
-            <a href="newlenox-sep-19-flyer.jpg" target="_blank" rel="noopener" aria-label="Open Bikes, Brews, and BBQ flyer full size">
-              <img src="newlenox-sep-19-flyer-thumb.jpg" alt="Bikes, Brews, and BBQ — American Legion Riders Post 1977, New Lenox, Saturday September 19, 2026. Live music by The Usual Suspects from 2-6pm." class="show-flyer" width="280" height="417" loading="lazy">
-              <span class="show-flyer-cta">View full flyer →</span>
-            </a>
-          </p>
-        </div>
-        <div class="show-badge show-badge-open">OPEN</div>
-      </article>
-
-        <!-- cache-bust: rickys-ride-2026-09-20 -->
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">SEP</span>
-            <span class="show-day">20</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">New Image <span class="show-venue-sub">— Ricky's Ride after-party</span></h3>
-            <p class="show-meta">Sunday · 3:00 PM – 7:00 PM · 7815 W Lincoln Hwy, Frankfort, IL 60423</p>
-            <p class="show-detail">Bikes roll in at 3 from Ricky's Ride — we go till 7. Live music, raffles, food. Open to the public.</p>
-            <p class="show-cta-row">
-              <a href="https://rickysride.org/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">rickysride.org</a>
-              <a href="https://www.facebook.com/share/1Hf3btycsP/" target="_blank" rel="noopener" class="btn btn-ghost btn-small">Facebook share</a>
-            </p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <!-- cache-bust: tru-country-channahon-2026-10-03 -->
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">OCT</span>
-            <span class="show-day">3</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">Tru Country <span class="show-venue-sub">Bar &amp; Grill</span></h3>
-            <p class="show-meta">Saturday · 8:00 PM – 11:00 PM · 25365 S Fryer St, Channahon, IL 60410</p>
-            <p class="show-detail">Open to the public. 815-290-5075 for venue info.</p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">NOV</span>
-            <span class="show-day">14</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
-            <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
-            <p class="show-detail">Open to the public. 815-485-4651 for venue info.</p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <!-- cache-bust: tru-country-new-lenox-2026-12-05 -->
-        <article class="show-card">
-          <div class="show-date">
-            <span class="show-month">DEC</span>
-            <span class="show-day">5</span>
-            <span class="show-year">2026</span>
-          </div>
-          <div class="show-info">
-            <h3 class="show-venue">Tru Country <span class="show-venue-sub">Bar &amp; Grill</span></h3>
-            <p class="show-meta">Saturday · 8:00 PM – 11:00 PM · 222 W Maple St, New Lenox, IL 60451</p>
-            <p class="show-detail">Open to the public. 815-717-8677 for venue info.</p>
-          </div>
-          <div class="show-badge show-badge-open">OPEN</div>
-        </article>
-
-        <!--
-          Template for adding more shows (copy + paste + edit):
-          <article class="show-card">
-            <div class="show-date">
-              <span class="show-month">MMM</span>
-              <span class="show-day">DD</span>
-              <span class="show-year">YYYY</span>
-            </div>
-            <div class="show-info">
-              <h3 class="show-venue">[VENUE NAME]</h3>
-              <p class="show-meta">[Day · Time · Address]</p>
-              <p class="show-detail">[Notes: open/private/cover/etc.]</p>
-            </div>
-            <div class="show-badge show-badge-open">OPEN</div>
-          </article>
-        -->
-
-        <article class="show-card show-card-placeholder">
-          <div class="show-info">
-            <h3 class="show-venue">More dates added weekly</h3>
-            <p class="show-detail">Hit the Facebook page or drop your email — we'll send the next month's schedule as it locks in.</p>
-          </div>
-          <a class="btn btn-ghost btn-small" href="https://www.facebook.com/profile.php?id=100029619594462" target="_blank" rel="noopener">Follow on Facebook →</a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── THE BAND ────────────────────────────────────────────── -->
-
-  <!-- ─── THE BAND ────────────────────────────────────────────── -->
-  <section class="section" id="band">
-    <div class="container">
-      <span class="eyebrow">05 — THE BAND</span>
-      <h2>Meet the Band</h2>
-
-      <div class="band-grid">
-        <article class="band-card">
-          <img src="photos/buck-photo.jpg" alt="Steve &quot;Buck&quot; Dennison in a Harley-Davidson shirt playing sunburst Stratocaster" class="band-photo">
-          <h3>Steve "Buck" Dennison</h3>
-          <p class="band-role">Lead vocals · Guitar · Booking</p>
-          <p class="band-blurb">Frontman, calls the gigs, owns the room. The guy you talk to when you're booking. Want to hear it? He'll probably know it — request just about anything and chances are he's got it ready.</p>
-        </article>
-        <article class="band-card">
-          <img src="photos/frank-photo.jpg" alt="Frank Gatto laughing while playing gold-top Les Paul" class="band-photo">
-          <h3>Frank Gatto</h3>
-          <p class="band-role">Guitar</p>
-          <p class="band-blurb">Three decades of playing out, teaching, and selling behind the counter at music stores — and a luthier at Gatto Guitars. One of the best guitar players you'll ever meet, and most people in the room already know it.</p>
-        </article>
-        <article class="band-card">
-          <img src="photos/jim-photo.jpg" alt="Jim 'Crash' Mihalovich at his drum kit under blue stage lighting" class="band-photo">
-          <h3>Jim "Crash" Mihalovich</h3>
-          <p class="band-role">Drums · Backing vocals</p>
-          <p class="band-blurb">Been playing drums his whole life — since before he could reach the pedals. A veteran, a lifelong baseball fan, and the kind of drummer every band wishes they had. Local bands, road gigs, every kind of room you can name. The reason the rest of the band sounds tight without ever asking for the spotlight.</p>
-        </article>
-        <article class="band-card">
-          <img src="photos/bass-photo.jpg" alt="Bill Thorpe playing fretless bass with eyes closed" class="band-photo">
-          <h3>Bill Thorpe</h3>
-          <p class="band-role">Bass · Vocals</p>
-          <p class="band-blurb">A working musician for over 40 years. Multi-instrumentalist — bass, violin, and whatever else the night calls for. Wedding bands, bars, VFW halls, American Legion rooms, festival stages. He's played them all and he still shows up early.</p>
-        </article>
-        <article class="band-card">
-          <img src="photos/billy-photo.jpg" alt="Billy Thorpe playing white Fender Stratocaster on an outdoor stage, eyes down on his hands mid-riff" class="band-photo">
-          <h3>Billy Thorpe</h3>
-          <p class="band-role">Guitar · Recording &amp; Video</p>
-          <p class="band-blurb">An all-around guitarist who handles the band's recording and video — and built this website. Son of bassist Bill Thorpe; every time he's on stage, there's a Thorpe holding down the bass end too.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── WHERE WE'VE PLAYED ───────────────────────────────────── -->
-  <section class="section section-alt" id="venues">
-    <div class="container">
-      <span class="eyebrow">06 — ROOMS WE'VE WORKED</span>
-      <h2>A few of the venues.</h2>
-
-      <div class="venues-grid">
-        <div class="venue-card">
-          <h3>Frankfort VFW Post 1493</h3>
-          <p>Frankfort, IL · VFW hall · full band sets</p>
-        </div>
-        <div class="venue-card">
-          <h3>Bradley American Legion – Post 766</h3>
-          <p>Bradley, IL · American Legion · parties + private events</p>
-        </div>
-        <div class="venue-card">
-          <h3>Manteno American Legion</h3>
-          <p>Manteno, IL · American Legion · regular sets (back July 17)</p>
-        </div>
-        <div class="venue-card">
-          <h3>New Lenox American Legion <span class="venue-sub">Post 1977</span></h3>
-          <p>New Lenox, IL · American Legion · afternoon sets · Sept 19 &amp; Nov 14</p>
-        </div>
-        <div class="venue-card">
-          <h3>White Rhino Bar &amp; Grill</h3>
-          <p>Dyer, IN · bar · food + drinks · 8:30pm sets</p>
-        </div>
-        <div class="venue-card-placeholder">
-          <p>More rooms coming — venues drop us a line if you'd like to be listed here.</p>
-        </div>
-        <div class="venue-card-placeholder">
-          <p>Booking inquiries get a response within 24 hours. <a href="#book">See contact below →</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── BOOKING / CONTACT ────────────────────────────────────── -->
-  <!--
-    Booking form is a custom embed (mailto: wire) — same pattern as the
-    BTP site. Buck answers within 24 hours.
-    Update the `action` mailto below if Buck's email ever changes.
-    For a backend-submitted form (Formspree / Netlify Forms / etc.):
-      - change <form action="..."> to the endpoint
-      - swap submitBookForm() to fetch() with JSON body
-      - remove the mailto URL builder
-  -->
-  <section class="section section-cta" id="book">
-    <div class="container">
-      <span class="eyebrow">07 — BOOK THE BAND</span>
+      <span class="eyebrow">07 — YOUR NEXT GOOD NIGHT</span>
       <h2>Let's talk about your night.</h2>
       <p class="section-lede">Bars, VFW halls, American Legion posts, fall fests, private events, private parties, corporate. Anywhere with a power outlet and a crowd.</p>
 
-      <!-- Request form (the soft entry for venue / event planners who'd rather type than call) -->
+
       <form class="request-form" id="bookForm" action="mailto:buck956@att.net" method="post" enctype="text/plain" onsubmit="return submitBookForm(event)">
         <p class="form-intro">Tell us about your night — date, venue, what kind of event. We come back with availability and a quote within 24 hours. <strong>Buck reads every one.</strong></p>
         <div class="form-row">
           <label class="form-field">
             <span class="form-label">Your name</span>
-            <input type="text" name="name" required placeholder="Jane Smith">
+            <input type="text" name="name" autocomplete="name" maxlength="100" required placeholder="Jane Smith">
           </label>
           <label class="form-field">
             <span class="form-label">Phone or email</span>
-            <input type="text" name="contact" required placeholder="(708) 555-0123 · you@example.com">
+            <input type="text" name="contact" maxlength="150" required placeholder="(708) 555-0123 · you@example.com">
           </label>
         </div>
         <div class="form-row">
@@ -553,20 +476,21 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
             </select>
           </label>
           <label class="form-field">
-            <span class="form-label">Event date</span>
-            <input type="date" name="event_date" required>
+            <span class="form-label">Event date (if known)</span>
+            <input type="date" name="event_date">
           </label>
         </div>
         <div class="form-row">
           <label class="form-field form-field-full">
             <span class="form-label">Anything else we should know?</span>
-            <textarea name="notes" rows="3" placeholder="Venue name + address, PA situation, special requests, song must-plays…"></textarea>
+            <textarea name="notes" maxlength="1500" rows="4" placeholder="Venue name + address, PA situation, special requests, song must-plays…"></textarea>
           </label>
         </div>
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Send to Buck</button>
-          <p class="form-fineprint">Opens your email client pre-filled. We reply within 24 hours. Or just call <a href="tel:+17082144901">(708) 214-4901</a>.</p>
+        <p class="form-fineprint">This form prepares an email to Buck; it does not send a message automatically.</p><div class="form-actions">
+          <button type="submit" class="btn btn-primary">Prepare booking email</button>
+          <p class="form-fineprint">Review the email, then send it from your email app. Or just call <a href="tel:+17082144901">(708) 214-4901</a>.</p>
         </div>
+<p id="booking-status" role="status"></p><details id="booking-copy" hidden><summary>Email app didn’t open? Copy your inquiry</summary><textarea id="booking-draft" readonly rows="8" aria-label="Your booking email draft"></textarea><p>Send it to <a href="mailto:buck956@att.net">buck956@att.net</a>.</p></details>
       </form>
 
       <div class="contact-divider"><span>or reach out directly</span></div>
@@ -575,7 +499,7 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
         <div class="contact-card">
           <span class="contact-label">PRIMARY BOOKING</span>
           <p class="contact-name">Steve "Buck" Dennison</p>
-          <p class="contact-line">Phone: <a href="tel:+170****4901">(708) 214-4901</a></p>
+          <p class="contact-line">Phone: <a href="tel:+17082144901">(708) 214-4901</a></p>
           <p class="contact-line">Email: <a href="mailto:buck956@att.net">buck956@att.net</a></p>
           <p class="contact-line">Messenger: <a href="https://m.me/100029619594462" target="_blank" rel="noopener">Message the band</a></p>
         </div>
@@ -594,13 +518,23 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
       <div class="social-row">
         <a href="https://www.facebook.com/profile.php?id=100029619594462" class="social-link" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.youtube.com/@brassbootstudio" class="social-link" target="_blank" rel="noopener">YouTube</a>
-        <span class="social-link social-link--disabled" aria-disabled="true">Instagram — coming soon</span>
+
       </div>
     </div>
   </section>
-
-  <!-- ─── EDITORIAL FOOTER ─────────────────────────────────────── -->
-  <footer class="site-footer">
+<section class="section section-alt" id="newsletter">
+    <div class="container">
+      <span class="eyebrow">STAY IN THE LOOP</span>
+      <h2>One email a month. The next month's shows + a fresh clip.</h2>
+      <form class="newsletter-form" action="https://buttondown.email/api/emails/embed-subscribe/usualsuspects" method="post" target="popupwindow">
+        <input type="email" name="email" aria-label="Your email address" autocomplete="email" required placeholder="you@example.com">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+      <p class="newsletter-fineprint">No spam, ever. Unsubscribe anytime.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
     <div class="container">
       <div class="footer-logo">
         <img src="logo.jpg" alt="The Usual Suspects" class="footer-logo-img">
@@ -620,52 +554,8 @@ src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
     </div>
   </footer>
 
-  <!-- ─── INSTAGRAM FEED ─────────────────────────────────────────── -->
-  <section class="section section-alt" id="instagram">
-    <div class="container">
-      <span class="eyebrow">08 — INSTAGRAM</span>
-      <h2>From the room.</h2>
-      <p class="section-lede">Photos and short clips from recent gigs. Follow <a href="https://instagram.com/TheUsualSuspectsBand" target="_blank" rel="noopener">@TheUsualSuspectsBand</a> for the live take.</p>
-      <div class="instagram-grid" data-handle="TheUsualSuspectsBand">
-        <!-- site.js renders latest 6 posts here -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── FAN NEWSLETTER ─────────────────────────────────────────── -->
-  <section class="section section-alt" id="newsletter">
-    <div class="container">
-      <span class="eyebrow">09 — STAY IN THE LOOP</span>
-      <h2>One email a month. The next month's shows + a fresh clip.</h2>
-      <form class="newsletter-form" action="https://buttondown.email/api/emails/embed-subscribe/usualsuspects" method="post" target="popupwindow">
-        <input type="email" name="email" required placeholder="you@example.com">
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-      </form>
-      <p class="newsletter-fineprint">No spam, ever. Unsubscribe anytime.</p>
-    </div>
-  </section>
-
-</main>
-
-<!-- ─── FREE DRINK COUPON MODAL ─────────────────────────────────── -->
-<!--
-  Triggered by any [data-free-drink-trigger] button on any upcoming show card.
-  site.js handles open/close: click button → open; click backdrop, click X, or press Esc → close.
-  Focus is trapped inside the dialog while open. Body scroll is locked.
-  When the parent .show-card becomes .show-card-past (date has passed), the trigger button hides via CSS.
--->
-<div class="modal" id="free-drink-modal" role="dialog" aria-modal="true" aria-labelledby="free-drink-modal-title" aria-hidden="true" hidden>
-  <div class="modal-backdrop" data-free-drink-close></div>
-  <div class="modal-dialog" role="document">
-    <button type="button" class="modal-close" data-free-drink-close aria-label="Close coupon">×</button>
-    <h2 class="modal-title" id="free-drink-modal-title">Your free drink is on us.</h2>
-    <p class="modal-caption">Limited to the first 10 fans, one per customer. Show this at the bar and tell the bartender we're sending you.</p>
-    <img src="free-drink-coupon.jpg" alt="Free drink coupon — The Usual Suspects" class="modal-coupon" width="1280" height="714">
-    <p class="modal-foot">Valid at the next show — see the show card above for date and venue.</p>
-  </div>
-</div>
-
-<script src="site.js"></script>
+<dialog id="photo-dialog" aria-label="Band photo"><button type="button" id="photo-close" aria-label="Close photo">Close ×</button><img alt=""><p></p></dialog>
+<script src="media.js"></script><script src="site.js"></script>
 
 </body>
 </html>
