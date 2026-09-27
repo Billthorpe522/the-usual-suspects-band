@@ -54,7 +54,7 @@ The companion `.rocks` repository has browser redirects ready for review. A true
 
 ## Validation and review
 
-Run `node tests/check.cjs` from this repository. Checks cover asset/anchor integrity, JSON-LD parsing, five show dates, Central-time show rollover including standard time, all-shows-ended fallback, and booking draft encoding.
+Run `node tests/check.cjs` from this repository. Checks cover asset/anchor integrity, JSON-LD parsing, six show dates, Central-time show rollover including standard time, all-shows-ended fallback, and booking draft encoding.
 
 Browser checks: 320, 390, 768, and 1799 pixel widths; no horizontal overflow. Mobile navigation opens and closes on selection. Photo dialog opens, closes with Escape, and returns focus. Empty booking form focuses the required name field. No booking emails or newsletter subscriptions were sent. YouTube rejects playback on this localhost preview; its original production embed URL and direct watch link remain intact. Verify playback after publication. New Pocket 3/song clips have not been supplied or invented.
 

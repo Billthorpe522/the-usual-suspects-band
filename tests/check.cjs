@@ -18,7 +18,7 @@ const cards = [...html.matchAll(/<article class="show-card" id="([^"]+)" data-st
   id:m[1],dataset:{start:m[2],end:m[3]},hidden:false,
   querySelector(selector) { return {textContent: selector === '.show-venue' ? 'Test venue' : 'Saturday · 2:00 PM – 6:00 PM · Address'}; }
 }));
-assert.equal(cards.length, 5);
+assert.equal(cards.length, 6);
 cards.forEach(c=>assert(Date.parse(c.dataset.end)>Date.parse(c.dataset.start)));
 const hero = {replaceChildren(){this.children=[];},append(...items){this.children=items;}};
 const context = {Intl,Date,document:{querySelectorAll:()=>cards,getElementById:()=>hero,createElement:()=>({})}};
@@ -35,6 +35,11 @@ context.refreshShows(Date.parse('2026-11-14T20:30:00Z'));
 assert.equal(hero.href,'#show-4');
 assert.equal(hero.children[0].textContent,'On stage now');
 context.refreshShows(Date.parse('2027-01-01T00:00:00Z'));
+assert.equal(hero.href,'#show-6');
+assert.equal(hero.children[0].textContent,'Next show');
+context.refreshShows(Date.parse('2027-01-31T02:00:00Z'));
+assert.equal(hero.children[0].textContent,'On stage now');
+context.refreshShows(Date.parse('2027-01-31T05:30:00Z'));
 assert.equal(hero.href,'#book');
 assert(cards.every(c=>c.hidden));
 context.FormData = class { constructor(form){this.form=form;} get(key){return this.form[key];} };
