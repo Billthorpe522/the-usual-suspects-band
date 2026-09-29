@@ -15,6 +15,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && navList.cl
 function refreshShows(now = Date.now()) {
   const cards = [...document.querySelectorAll('.show-card[data-start]')].sort((a,b) => Date.parse(a.dataset.start) - Date.parse(b.dataset.start));
   cards.forEach(card => { card.hidden = Date.parse(card.dataset.end) <= now; });
+  const featured = document.querySelector('[data-featured-end]');
+  if (featured) featured.hidden = Date.parse(featured.dataset.featuredEnd) <= now;
   const next = cards.find(card => !card.hidden);
   const hero = document.getElementById('hero-next');
   hero.replaceChildren();

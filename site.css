@@ -586,7 +586,7 @@ dialog p {
 
 /* Featured event artwork stays complete at every screen size. */
 .featured-shows { padding:1.5rem 0; border-bottom:1px solid var(--line); }
-.featured-shows-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem; align-items:start; }
+.featured-shows-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:1.5rem; align-items:start; }
 .featured-show { display:block; overflow:hidden; border:1px solid var(--line); border-radius:4px; background:var(--panel); text-decoration:none; }
 .featured-show img { width:100%; height:auto; }
 .featured-show span { display:block; padding:.75rem 1rem; font-size:.875rem; color:var(--ink); }
