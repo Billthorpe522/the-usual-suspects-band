@@ -37,6 +37,41 @@ function refreshShows(now = Date.now()) {
 }
 refreshShows(); setInterval(() => refreshShows(), 60000);
 
+// The explicit Central offset makes the countdown identical in every timezone.
+function refreshCountdown(now = Date.now()) {
+  const featured = document.querySelector('[data-featured-start]');
+  if (!featured) return;
+  const start = Date.parse(featured.dataset.featuredStart);
+  const end = Date.parse(featured.dataset.featuredEnd);
+  const clock = document.getElementById('show-countdown');
+  const status = document.getElementById('countdown-status');
+  if (!Number.isFinite(start) || !Number.isFinite(end)) return;
+  const state = now >= end ? 'ended' : now >= start ? 'playing' : 'upcoming';
+  featured.hidden = state === 'ended';
+  clock.hidden = state !== 'upcoming';
+  if (featured.dataset.countdownState !== state) {
+    status.textContent = state === 'playing' ? 'On stage now · until midnight' : state === 'ended' ? 'Thanks for coming out!' : 'We take the stage in';
+    featured.dataset.countdownState = state;
+    refreshShows(now);
+  }
+  if (state !== 'upcoming') return;
+  const seconds = Math.ceil((start - now) / 1000);
+  const remaining = {
+    days: Math.floor(seconds / 86400),
+    hours: Math.floor(seconds / 3600) % 24,
+    minutes: Math.floor(seconds / 60) % 60,
+    seconds: seconds % 60
+  };
+  for (const [unit, value] of Object.entries(remaining)) {
+    clock.querySelector(`[data-countdown="${unit}"]`).textContent = String(value).padStart(2, '0');
+  }
+}
+refreshCountdown();
+setInterval(() => refreshCountdown(), 1000);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) refreshCountdown();
+});
+
 const photoDialog = document.getElementById('photo-dialog');
 let photoTrigger;
 document.querySelectorAll('[data-gallery]').forEach(link => link.addEventListener('click', e => {

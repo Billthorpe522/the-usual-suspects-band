@@ -476,9 +476,6 @@ dialog button {
   margin-left:auto}
 dialog p {
   margin-top:.5rem}
-.next-show-countdown {
-  display:none}
-
 @media(max-width:850px) {
   .site-nav-list {
   gap:1rem}
@@ -591,4 +588,16 @@ dialog p {
 .featured-show img { width:100%; height:auto; }
 .featured-show span { display:block; padding:.75rem 1rem; font-size:.875rem; color:var(--ink); }
 .featured-show:hover { border-color:var(--brass); }
-@media (max-width:760px) { .featured-shows-grid { grid-template-columns:1fr; } }
+.show-countdown { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1.5rem 2rem; padding:1.5rem; border:1px solid var(--line); background:var(--panel); }
+.countdown-info { flex:1 1 340px; min-width:0; }
+.countdown-info .eyebrow { color:var(--brass); }
+.countdown-info h2 { font-size:clamp(1.8rem,4vw,2.5rem); margin:.4rem 0 .65rem; }
+.countdown-info p { color:var(--soft); }
+.countdown-clock { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:1rem; flex:0 1 380px; width:100%; }
+.countdown-clock div { text-align:center; }
+.countdown-clock strong { display:block; color:var(--brass); font-family:'JetBrains Mono',monospace; font-size:clamp(1.6rem,4vw,2.75rem); font-variant-numeric:tabular-nums; line-height:1.3; }
+.countdown-clock span { color:var(--soft); font-size:.875rem; }
+@media (max-width:650px) {
+  .show-countdown { padding:1rem; }
+  .countdown-clock { flex-basis:100%; gap:.5rem; }
+}

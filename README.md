@@ -54,8 +54,10 @@ The companion `.rocks` repository has browser redirects ready for review. A true
 
 ## Validation and review
 
-Run `node tests/check.cjs` from this repository. Checks cover asset/anchor integrity, JSON-LD parsing, six show dates, Central-time show rollover including standard time, all-shows-ended fallback, and booking draft encoding.
+Run `node tests/check.cjs` from this repository. Checks cover asset/anchor integrity, JSON-LD parsing, four upcoming show dates, Central-time show rollover including standard time, all-shows-ended fallback, countdown start/end boundaries, and booking draft encoding.
 
 Browser checks: 320, 390, 768, and 1799 pixel widths; no horizontal overflow. Mobile navigation opens and closes on selection. Photo dialog opens, closes with Escape, and returns focus. Empty booking form focuses the required name field. No booking emails or newsletter subscriptions were sent. YouTube rejects playback on this localhost preview; its original production embed URL and direct watch link remain intact. Verify playback after publication. New Pocket 3/song clips have not been supplied or invented.
 
-This branch is prepared for review, not pushed or published. Preview with the local server described above. Deploy the main site and companion redirect branch together after review.
+## October 3 feature
+
+The homepage uses the final Tru Country poster for Saturday, October 3, 2026, 9 PM–midnight Central. The countdown reads `data-featured-start` and `data-featured-end`, updates each second, switches to “On stage now” at 9 PM, and hides the feature at midnight. September 19 and 20 promotions have been removed from the page and expired Event structured data. Other upcoming shows remain listed. To update the featured show, keep its poster, caption, countdown dates, show card, and Event structured data in sync.
