@@ -18,8 +18,12 @@ const cards = [...html.matchAll(/<article class="show-card" id="([^"]+)" data-st
   id:m[1],dataset:{start:m[2],end:m[3]},hidden:false,
   querySelector(selector) { return {textContent: selector === '.show-venue' ? 'Test venue' : 'Saturday · 2:00 PM – 6:00 PM · Address'}; }
 }));
-assert.equal(cards.length, 4);
+assert.equal(cards.length, 5);
 cards.forEach(c=>assert(Date.parse(c.dataset.end)>Date.parse(c.dataset.start)));
+const frankfort = cards.find(c=>c.id==='show-7');
+const frankfortEvent = schema['@graph'].find(e=>e['@id']==='https://playtheusualsuspects.com/#show-7');
+assert.equal(frankfortEvent.startDate, frankfort.dataset.start);
+assert.equal(frankfortEvent.endDate, frankfort.dataset.end);
 const hero = {replaceChildren(){this.children=[];},append(...items){this.children=items;}};
 const featured = {dataset:{featuredEnd:'2026-10-04T00:00:00-05:00'},hidden:false};
 const context = {Intl,Date,document:{querySelector:()=>featured,querySelectorAll:()=>cards,getElementById:()=>hero,createElement:()=>({})}};
@@ -46,6 +50,15 @@ assert.equal(hero.children[0].textContent,'Next show');
 context.refreshShows(Date.parse('2027-01-31T02:00:00Z'));
 assert.equal(hero.children[0].textContent,'On stage now');
 context.refreshShows(Date.parse('2027-01-31T05:30:00Z'));
+assert.equal(hero.href,'#show-7');
+assert.equal(hero.children[0].textContent,'Next show');
+context.refreshShows(Date.parse('2027-04-04T00:29:59Z'));
+assert.equal(hero.children[0].textContent,'Next show');
+context.refreshShows(Date.parse('2027-04-04T00:30:00Z'));
+assert.equal(hero.href,'#show-7');
+assert.equal(hero.children[0].textContent,'On stage now');
+assert.equal(frankfort.hidden,false);
+context.refreshShows(Date.parse('2027-04-04T03:30:00Z'));
 assert.equal(hero.href,'#book');
 assert(cards.every(c=>c.hidden));
 // Countdown boundaries: Central time, start, and midnight rollover.
