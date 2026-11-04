@@ -46,16 +46,29 @@ function refreshCountdown(now = Date.now()) {
   const clock = document.getElementById('show-countdown');
   const status = document.getElementById('countdown-status');
   if (!Number.isFinite(start) || !Number.isFinite(end)) return;
-  const state = now >= end ? 'ended' : now >= start ? 'playing' : 'upcoming';
+  const musicStart = Date.parse(featured.dataset.musicStart);
+  const cookoffEnd = Date.parse(featured.dataset.cookoffEnd);
+  const state = now >= end ? 'ended' : now >= cookoffEnd ? 'music-only' : now >= musicStart ? 'playing' : now >= start ? 'cookoff' : 'upcoming';
   featured.hidden = state === 'ended';
-  clock.hidden = state !== 'upcoming';
+  const counting = state === 'upcoming' || state === 'cookoff';
+  clock.hidden = !counting;
+  document.querySelectorAll('[data-featured-nav]').forEach(link => { link.hidden = state === 'ended'; });
   if (featured.dataset.countdownState !== state) {
-    status.textContent = state === 'playing' ? 'On stage now · until midnight' : state === 'ended' ? 'Thanks for coming out!' : 'We take the stage in';
+    const labels = {
+      upcoming: 'The cook-off starts in',
+      cookoff: 'Chili is on! The band takes the stage in',
+      playing: 'On stage now · music until 6 PM Central',
+      'music-only': 'Chili tasting has ended · live music until 6 PM Central',
+      ended: 'Thanks for coming out!'
+    };
+    status.textContent = labels[state];
+    clock.setAttribute('aria-label', state === 'cookoff' ? 'Time until the band starts' : 'Time until the chili cook-off starts');
     featured.dataset.countdownState = state;
     refreshShows(now);
   }
-  if (state !== 'upcoming') return;
-  const seconds = Math.ceil((start - now) / 1000);
+  if (!counting) return;
+  const target = state === 'cookoff' ? musicStart : start;
+  const seconds = Math.ceil((target - now) / 1000);
   const remaining = {
     days: Math.floor(seconds / 86400),
     hours: Math.floor(seconds / 3600) % 24,

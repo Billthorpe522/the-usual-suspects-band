@@ -601,3 +601,42 @@ dialog p {
   .show-countdown { padding:1rem; }
   .countdown-clock { flex-basis:100%; gap:.5rem; }
 }
+
+/* November benefit: readable event details alongside the complete official flyer. */
+.featured-shows { padding:2.5rem 0; background:radial-gradient(ellipse at top left,#302619 0,transparent 65%),var(--bg); }
+.featured-shows-grid { grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:3rem; align-items:center; }
+.event-feature-copy h2 { font-size:clamp(2.5rem,4.2vw,3.6rem); }
+.event-feature-copy h2 em { color:var(--brass); font-style:normal; }
+.event-intro { color:var(--soft); max-width:37rem; margin-bottom:1.1rem; }
+.event-intro strong,.event-venue { color:var(--ink); font-weight:700; }
+.event-address,.event-timezone,.event-extras { color:var(--soft); font-size:.875rem; }
+.event-schedule { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.4rem 0 .5rem; }
+.event-schedule div { border-left:2px solid var(--brass); padding-left:1rem; }
+.event-schedule span { display:block; font-size:.8rem; color:var(--soft); }
+.event-schedule strong { font-size:1.55rem; }
+.event-feature-copy .show-countdown { display:block; margin:1.3rem 0; padding:1rem 1.25rem; border-color:#72603a; }
+.show-countdown .eyebrow { font-size:.75rem; margin-bottom:.65rem; }
+.countdown-clock { max-width:400px; }
+.countdown-clock strong { font-size:clamp(1.6rem,3vw,2.4rem); }
+.event-admission { font-size:.9375rem; }
+.event-admission strong { color:var(--brass); }
+.event-extras { margin-top:.4rem; }
+.event-actions { display:flex; flex-wrap:wrap; gap:.65rem; margin:1.3rem 0 .8rem; }
+.event-links { display:flex; flex-wrap:wrap; gap:.6rem; font-size:.875rem; }
+.event-flyer { min-width:0; }
+.event-flyer figcaption { font-size:.75rem; color:var(--soft); margin-top:.5rem; }
+@media (max-width:900px) {
+  .site-nav-inner { flex-wrap:wrap; }
+  .site-nav-toggle { display:block; }
+  .site-nav-list { width:100%; flex-wrap:wrap; padding-bottom:1rem; gap:.3rem 1.4rem; }
+  .js .site-nav-list { display:none; }
+  .js .site-nav-list.open { display:flex; }
+  .featured-shows-grid { grid-template-columns:minmax(0,1fr); gap:2rem; }
+  .event-flyer { width:100%; max-width:520px; margin-inline:auto; }
+}
+@media (max-width:400px) {
+  .event-schedule { gap:.5rem; }
+  .event-schedule div { padding-left:.65rem; }
+  .event-schedule strong { font-size:1.3rem; }
+  .event-actions .btn { width:100%; }
+}

@@ -1,0 +1,29 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Usual Suspects//Show Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:chili-20261114@playtheusualsuspects.com
+DTSTAMP:20261104T180000Z
+DTSTART:20261114T180000Z
+DTEND:20261114T220000Z
+SUMMARY:Farm2Veteran Chili Cook-Off
+LOCATION:American Legion Post 1977\, 14414 W. Ford Dr\, New Lenox IL
+DESCRIPTION:$10 tasting admission includes a hot dog and chips. Raffles a
+ nd 50/50.
+URL:https://www.farm2veteran.com/community-events/
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:usual-suspects-20261114@playtheusualsuspects.com
+DTSTAMP:20261104T180000Z
+DTSTART:20261114T200000Z
+DTEND:20261115T000000Z
+SUMMARY:The Usual Suspects - New Lenox American Legion
+LOCATION:American Legion Post 1977\, 14414 W. Ford Dr\, New Lenox IL
+DESCRIPTION:Live music 2-6 PM Central. Chili cook-off noon-4 PM.
+URL:https://playtheusualsuspects.com/#show-4
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

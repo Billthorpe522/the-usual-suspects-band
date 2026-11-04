@@ -26,7 +26,8 @@
 
 
 
-<script type="application/ld+json">{
+<script type="application/ld+json">
+{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -127,10 +128,10 @@
     },
     {
       "@type": "Event",
-      "@id": "https://playtheusualsuspects.com/#newlenox-nov-14",
-      "name": "The Usual Suspects — Live at New Lenox American Legion",
-      "startDate": "2026-11-14T14:00-06:00",
-      "endDate": "2026-11-14T18:00-06:00",
+      "@id": "https://playtheusualsuspects.com/#show-4",
+      "name": "The Usual Suspects at the Farm2Veteran Chili Cook-Off",
+      "startDate": "2026-11-14T14:00:00-06:00",
+      "endDate": "2026-11-14T18:00:00-06:00",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "eventStatus": "https://schema.org/EventScheduled",
       "location": {
@@ -148,7 +149,11 @@
       "performer": {
         "@id": "https://playtheusualsuspects.com/#band"
       },
-      "description": "Saturday afternoon event — live classic rock, R&B, and country at the New Lenox American Legion. Open to the public."
+      "description": "The Usual Suspects perform 2–6 PM Central. The Farm2Veteran chili cook-off runs noon–4 PM; $10 tasting admission includes a hot dog and chips.",
+      "url": "https://playtheusualsuspects.com/#show-4",
+      "superEvent": {
+        "@id": "https://playtheusualsuspects.com/#chili-cookoff"
+      }
     },
     {
       "@type": "Event",
@@ -226,14 +231,50 @@
         "@id": "https://playtheusualsuspects.com/#band"
       },
       "description": "Saturday, October 3, 2026, 9 PM to midnight Central. Open to the public."
+    },
+    {
+      "@type": "Event",
+      "@id": "https://playtheusualsuspects.com/#chili-cookoff",
+      "url": "https://playtheusualsuspects.com/#chili-cookoff",
+      "name": "Farm2Veteran Chili Cook-Off",
+      "startDate": "2026-11-14T12:00:00-06:00",
+      "endDate": "2026-11-14T16:00:00-06:00",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "New Lenox American Legion — Thomas E. Hartung Post 1977",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "14414 W. Ford Dr",
+          "addressLocality": "New Lenox",
+          "addressRegion": "IL",
+          "postalCode": "60451",
+          "addressCountry": "US"
+        }
+      },
+      "image": "https://playtheusualsuspects.com/farm2veteran-chili-cookoff-2026.png",
+      "description": "Chili tasting, live music, raffles and a 50/50 drawing benefiting Farm2Veteran. $10 per person includes chili tasting, a hot dog and chips.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Thomas E. Hartung American Legion Post 1977"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Chili tasting admission",
+        "price": "10",
+        "priceCurrency": "USD",
+        "url": "https://www.farm2veteran.com/community-events/"
+      }
     }
   ]
-}</script>
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="site.css?v=20260929-countdown">
+<link rel="stylesheet" href="site.css?v=20261104-chili">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -245,6 +286,7 @@
     <button class="site-nav-toggle" aria-expanded="false" aria-controls="site-nav-list">Menu</button>
     <ul class="site-nav-list" id="site-nav-list">
       <li><a href="#video">Watch live</a></li>
+      <li><a href="#chili-cookoff" data-featured-nav>Nov 14 cook-off</a></li>
       <li><a href="#shows">Shows</a></li>
       <li><a href="#gallery">Photos</a></li>
       <li><a href="#band">The band</a></li>
@@ -253,25 +295,43 @@
   </div>
 </nav>
 
-<section class="featured-shows" aria-label="Featured upcoming show" data-featured-start="2026-10-03T21:00:00-05:00" data-featured-end="2026-10-04T00:00:00-05:00">
+<section class="featured-shows" id="chili-cookoff" aria-labelledby="featured-title" data-featured-start="2026-11-14T12:00:00-06:00" data-featured-end="2026-11-14T18:00:00-06:00" data-music-start="2026-11-14T14:00:00-06:00" data-cookoff-end="2026-11-14T16:00:00-06:00">
   <div class="container featured-shows-grid">
-    <a class="featured-show" href="tru-country-october-3-2026-final.jpg" data-gallery>
-      <img src="tru-country-october-3-2026-final.jpg" width="1536" height="858" fetchpriority="high" alt="The Usual Suspects at Tru Country Bar &amp; Grill, Channahon. Saturday, October 3, 2026, 9:00 PM–midnight Central. 25365 S Fryer St, Channahon, IL 60410. Open to the public. 815-290-5075.">
-      <span>Saturday, October 3 · 9:00 PM–midnight CT · Tap to enlarge</span>
-    </a>
-    <div class="show-countdown">
-      <div class="countdown-info">
-        <span class="eyebrow" id="countdown-status">See you at Tru Country</span>
-        <h2>Tru Country Bar &amp; Grill</h2>
-        <p>Channahon · <time datetime="2026-10-03T21:00:00-05:00">Saturday, October 3 · 9:00 PM</time>–midnight Central</p>
+    <div class="event-feature-copy">
+      <p class="eyebrow">Next up · Saturday, November 14, 2026</p>
+      <h2 id="featured-title">Chili cook-off.<br><em>Live music. Good cause.</em></h2>
+      <p class="event-intro">Join The Usual Suspects at the <strong>Farm2Veteran Chili Cook-Off</strong> and help bring farm-fresh food to veterans in need.</p>
+      <p class="event-venue">New Lenox American Legion · Post 1977</p>
+      <p class="event-address">14414 W. Ford Dr, New Lenox, IL 60451</p>
+      <div class="event-schedule">
+        <div><span>Chili cook-off</span><strong>Noon–4 PM</strong></div>
+        <div><span>The Usual Suspects live</span><strong>2–6 PM</strong></div>
       </div>
-      <div class="countdown-clock" id="show-countdown" role="timer" aria-label="Time until the show starts" aria-live="off" hidden>
-        <div><strong data-countdown="days">00</strong><span>Days</span></div>
-        <div><strong data-countdown="hours">00</strong><span>Hours</span></div>
-        <div><strong data-countdown="minutes">00</strong><span>Minutes</span></div>
-        <div><strong data-countdown="seconds">00</strong><span>Seconds</span></div>
+      <p class="event-timezone">Saturday, November 14 · All times Central (CST)</p>
+      <div class="show-countdown">
+        <p class="eyebrow" id="countdown-status" role="status">The cook-off starts in</p>
+        <div class="countdown-clock" id="show-countdown" role="timer" aria-label="Time until the chili cook-off starts" aria-live="off" hidden>
+          <div><strong data-countdown="days">00</strong><span>Days</span></div>
+          <div><strong data-countdown="hours">00</strong><span>Hours</span></div>
+          <div><strong data-countdown="minutes">00</strong><span>Minutes</span></div>
+          <div><strong data-countdown="seconds">00</strong><span>Seconds</span></div>
+        </div>
       </div>
+      <p class="event-admission"><strong>$10 per person</strong> includes chili tasting, a hot dog &amp; chips.</p>
+      <p class="event-extras">People’s Choice chili contest · Raffles · 50/50 · Cash bar</p>
+      <div class="event-actions">
+        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=Thomas+E+Hartung+American+Legion+Post+1977+14414+W+Ford+Dr+New+Lenox+IL+60451" target="_blank" rel="noopener">Get directions ↗</a>
+        <a class="btn btn-ghost" href="farm2veteran-november-14-2026.ics" download>Add to calendar</a>
+      </div>
+      <p class="event-links"><a href="https://forms.gle/yaTcwYoUxzX8kUT27" target="_blank" rel="noopener">Enter your chili ↗</a> <span aria-hidden="true">·</span> <a href="https://www.farm2veteran.com/community-events/" target="_blank" rel="noopener">Organizer &amp; event details ↗</a></p>
     </div>
+    <figure class="event-flyer">
+      <a class="featured-show" href="farm2veteran-chili-cookoff-2026.png" data-gallery>
+        <img src="farm2veteran-chili-cookoff-2026.png" width="1545" height="1999" fetchpriority="high" alt="Farm2Veteran Chili Cook-Off at American Legion Post 1977, New Lenox. November 14, noon–4 PM. $10 includes chili tasting, hot dog and chips. Music by The Usual Suspects, raffles, 50/50 and cash bar.">
+        <span>Official event flyer · Tap to enlarge</span>
+      </a>
+      <figcaption>Flyer courtesy of <a href="https://www.farm2veteran.com/community-events/">Farm2Veteran</a>.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -318,7 +378,7 @@
     <div class="container">
       <span class="eyebrow">02 — ON THE BOOKS</span>
       <h2>Where to catch us next.</h2>
-      <p class="section-lede">Public shows are free to attend unless noted. Private events and parties aren't listed — but if you're a venue or event planner, <a href="#book">drop us a line</a>.</p>
+      <p class="section-lede">Admission varies by event; see each listing for details. Private events and parties aren't listed — but if you're a venue or event planner, <a href="#book">drop us a line</a>.</p>
 
 
       <p class="schedule-note">All times Central. Check with the venue for admission and event updates.</p><div class="shows-grid">
@@ -347,7 +407,7 @@
           <div class="show-info">
             <h3 class="show-venue">New Lenox American Legion <span class="show-venue-sub">Post 1977</span></h3>
             <p class="show-meta">Saturday · 2:00 PM – 6:00 PM · 14414 W. Ford Dr, New Lenox, IL 60451</p>
-            <p class="show-detail">Open to the public. 815-485-4651 for venue info.</p>
+            <p class="show-detail"><strong>Farm2Veteran Chili Cook-Off</strong> · Noon–4 PM · $10 tasting admission includes a hot dog and chips. Band plays 2–6 PM. <a href="#chili-cookoff">Flyer, countdown &amp; event details →</a> Venue info: <a href="tel:+18154854651">815-485-4651</a>.</p>
           </div>
           <div class="show-badge show-badge-open">OPEN</div>
         </article>
@@ -617,7 +677,7 @@
   </footer>
 
 <dialog id="photo-dialog" aria-label="Band photo"><button type="button" id="photo-close" aria-label="Close photo">Close ×</button><img alt=""><p></p></dialog>
-<script src="media.js"></script><script src="site.js?v=20260929-countdown"></script>
+<script src="media.js"></script><script src="site.js?v=20261104-chili"></script>
 
 </body>
 </html>

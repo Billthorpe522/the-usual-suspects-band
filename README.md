@@ -58,6 +58,8 @@ Run `node tests/check.cjs` from this repository. Checks cover asset/anchor integ
 
 Browser checks: 320, 390, 768, and 1799 pixel widths; no horizontal overflow. Mobile navigation opens and closes on selection. Photo dialog opens, closes with Escape, and returns focus. Empty booking form focuses the required name field. No booking emails or newsletter subscriptions were sent. YouTube rejects playback on this localhost preview; its original production embed URL and direct watch link remain intact. Verify playback after publication. New Pocket 3/song clips have not been supplied or invented.
 
-## October 3 feature
+## November 14 feature
 
-The homepage uses the final Tru Country poster for Saturday, October 3, 2026, 9 PM–midnight Central. The countdown reads `data-featured-start` and `data-featured-end`, updates each second, switches to “On stage now” at 9 PM, and hides the feature at midnight. September 19 and 20 promotions have been removed from the page and expired Event structured data. Other upcoming shows remain listed. To update the featured show, keep its poster, caption, countdown dates, show card, and Event structured data in sync.
+The homepage features the Farm2Veteran Chili Cook-Off on November 14, 2026. The organizer's official flyer, noon–4 PM event hours, $10 admission and registration link come from https://www.farm2veteran.com/community-events/ (checked November 4). The band's existing 2–6 PM slot is retained; it has not been independently reconfirmed by the organizer's listing.
+
+The countdown starts with the noon opening, switches to the 2 PM band start, then shows live status until 6 PM. At 4 PM it states that chili tasting has ended; at 6 PM the feature and its navigation link hide. All boundaries use America/Chicago standard time (-06:00). The calendar download contains separate cook-off and performance entries. Keep the feature data attributes, visible hours, countdown status labels, show card, Event metadata, calendar and tests synchronized when changing times. Original posters remain preserved.
