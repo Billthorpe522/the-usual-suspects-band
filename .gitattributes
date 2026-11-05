@@ -1,2 +1,2 @@
 # Preserve RFC 5545 CRLF line endings in downloadable calendars.
-*.ics -text
+*.ics -text whitespace=cr-at-eol

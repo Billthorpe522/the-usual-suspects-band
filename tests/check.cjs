@@ -16,7 +16,7 @@ const schema = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\
 assert.equal(schema['@graph'][0].url, 'https://playtheusualsuspects.com/');
 const cards = [...html.matchAll(/<article class="show-card" id="([^"]+)" data-start="([^"]+)" data-end="([^"]+)">([\s\S]*?)<\/article>/g)].map(m => ({
   id:m[1],dataset:{start:m[2],end:m[3]},hidden:false,
-  querySelector(selector) { return {textContent: selector === '.show-venue' ? 'Test venue' : 'Saturday · 2:00 PM – 6:00 PM · Address'}; }
+  querySelector(selector) { return {textContent: selector === '.show-venue' ? 'Test venue' : 'Saturday · 12:00 PM – 4:00 PM · Address'}; }
 }));
 assert.equal(cards.length, 5);
 cards.forEach(c=>assert(Date.parse(c.dataset.end)>Date.parse(c.dataset.start)));
@@ -72,23 +72,19 @@ context.refreshCountdown(Date.parse('2026-11-13T17:00:00Z'));
 assert.equal(clock.hidden,false);
 assert.equal(digits.days.textContent,'01');
 assert.equal(digits.hours.textContent,'01');
-assert.equal(countdownStatus.textContent,'The cook-off starts in');
+assert.equal(countdownStatus.textContent,'Chili & live music start in');
 context.refreshCountdown(Date.parse('2026-11-14T17:59:59Z'));
 assert.equal(digits.seconds.textContent,'01');
 context.refreshCountdown(Date.parse('2026-11-14T18:00:00Z'));
-assert.equal(clock.hidden,false);
-assert.equal(digits.hours.textContent,'02');
-assert.equal(countdownStatus.textContent,'Chili is on! The band takes the stage in');
-assert.equal(clock['aria-label'],'Time until the band starts');
-context.refreshCountdown(Date.parse('2026-11-14T20:00:00Z'));
 assert.equal(clock.hidden,true);
 assert.equal(featured.hidden,false);
-assert.equal(countdownStatus.textContent,'On stage now · music until 6 PM Central');
+assert.equal(countdownStatus.textContent,'On stage now · chili & live music until 4 PM Central');
 assert.equal(hero.children[0].textContent,'On stage now');
-context.refreshCountdown(Date.parse('2026-11-14T22:00:00Z'));
+assert.equal(hero.href,'#show-4');
+context.refreshCountdown(Date.parse('2026-11-14T21:59:59Z'));
 assert.equal(featured.hidden,false);
-assert.equal(countdownStatus.textContent,'Chili tasting has ended · live music until 6 PM Central');
-context.refreshCountdown(Date.parse('2026-11-15T00:00:00Z'));
+assert.equal(hero.href,'#show-4');
+context.refreshCountdown(Date.parse('2026-11-14T22:00:00Z'));
 assert.equal(featured.hidden,true);
 assert.equal(hero.href,'#show-5');
 const musicEvent = schema['@graph'].find(e=>e['@id']==='https://playtheusualsuspects.com/#show-4');
@@ -103,8 +99,14 @@ assert.equal(cards.find(c=>c.id==='show-4').dataset.end,musicEvent.endDate);
 const calendar=fs.readFileSync(path.join(root,'farm2veteran-november-14-2026.ics'),'utf8').replace(/\r\n /g,'');
 assert(calendar.includes('DTSTART:20261114T180000Z'));
 assert(calendar.includes('DTEND:20261114T220000Z'));
-assert(calendar.includes('DTSTART:20261114T200000Z'));
-assert(calendar.includes('DTEND:20261115T000000Z'));
+assert.equal((calendar.match(/DTSTART:20261114T180000Z/g)||[]).length,2);
+assert.equal((calendar.match(/DTEND:20261114T220000Z/g)||[]).length,2);
+assert.equal(musicEvent.startDate,chiliEvent.startDate);
+assert.equal(musicEvent.endDate,chiliEvent.endDate);
+assert(!html.includes('2–6 PM'));
+assert(!html.includes('2:00 PM – 6:00 PM'));
+assert(!html.includes('2026-11-14T14:00'));
+assert(!html.includes('2026-11-14T18:00'));
 context.FormData = class { constructor(form){this.form=form;} get(key){return this.form[key];} };
 vm.runInContext(js.slice(js.indexOf('function buildBookingDraft'),js.indexOf('function submitBookForm')),context);
 const draft = context.buildBookingDraft({name:' A & B ',contact:'test@example.com',venue_type:'Private party',event_date:'',notes:'Music & food\n6 PM'});
