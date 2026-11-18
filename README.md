@@ -54,12 +54,12 @@ The companion `.rocks` repository has browser redirects ready for review. A true
 
 ## Validation and review
 
-Run `node tests/check.cjs` from this repository. Checks cover asset/anchor integrity, JSON-LD parsing, four upcoming show dates, Central-time show rollover including standard time, all-shows-ended fallback, countdown start/end boundaries, and booking draft encoding.
+Run `node tests/check.cjs` from this repository. Checks cover asset/anchor integrity, JSON-LD parsing, three upcoming show dates, Central-time show rollover including standard time, all-shows-ended fallback, countdown start/end boundaries, and booking draft encoding.
 
 Browser checks: 320, 390, 768, and 1799 pixel widths; no horizontal overflow. Mobile navigation opens and closes on selection. Photo dialog opens, closes with Escape, and returns focus. Empty booking form focuses the required name field. No booking emails or newsletter subscriptions were sent. YouTube rejects playback on this localhost preview; its original production embed URL and direct watch link remain intact. Verify playback after publication. New Pocket 3/song clips have not been supplied or invented.
 
-## November 14 feature
+## December 5 feature
 
-The homepage features the Farm2Veteran Chili Cook-Off on November 14, 2026. The organizer's official flyer, noon–4 PM event hours, $10 admission and registration link come from https://www.farm2veteran.com/community-events/ (checked November 4). Bill confirmed on November 5 that both the band and cook-off run noon–4 PM Central on Saturday, November 14.
+The homepage features Tru Country Bar & Grill in New Lenox, Saturday, December 5, 2026, 8–11 PM Central, at 222 W Maple St. Bill requested this next-show feature on November 18; venue, address, phone and hours retain the existing published December listing.
 
-The countdown targets the shared noon start, shows live status from noon to 4 PM, then hides the feature and its navigation link at 4 PM. All boundaries use America/Chicago standard time (-06:00). The calendar download contains separate cook-off and performance entries. Keep the feature data attributes, visible hours, countdown status labels, show card, Event metadata, calendar and tests synchronized when changing times. Original posters remain preserved.
+The countdown targets 8 PM CST, switches to live status at showtime, and hides the feature/navigation link at 11 PM. Its live status derives the end time from the feature timestamp. The next-show link then rolls forward to the January booking. The calendar, show card and Event metadata share the explicit -06:00 schedule. October and November cards and their Event metadata were removed from the current homepage; original flyers and calendars remain preserved in the repository.

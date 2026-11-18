@@ -602,7 +602,7 @@ dialog p {
   .countdown-clock { flex-basis:100%; gap:.5rem; }
 }
 
-/* November benefit: readable event details alongside the complete official flyer. */
+/* Featured show: readable details alongside the band artwork. */
 .featured-shows { padding:2.5rem 0; background:radial-gradient(ellipse at top left,#302619 0,transparent 65%),var(--bg); }
 .featured-shows-grid { grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:3rem; align-items:center; }
 .event-feature-copy h2 { font-size:clamp(2.5rem,4.2vw,3.6rem); }
@@ -640,3 +640,11 @@ dialog p {
   .event-schedule strong { font-size:1.3rem; }
   .event-actions .btn { width:100%; }
 }
+
+.event-poster { overflow:hidden; border:1px solid #72603a; border-radius:4px; background:#000; text-align:center; }
+.event-poster img { width:100%; height:auto; }
+.event-poster-details { padding:1rem 1.25rem 2rem; background:linear-gradient(#000,#211c12); }
+.event-poster-details .eyebrow { font-size:.75rem; }
+.event-poster-date { font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; font-size:clamp(2.2rem,4vw,3.3rem); line-height:1.1; color:var(--brass); }
+.event-poster-time { font-weight:700; font-size:1.15rem; margin:.75rem 0; }
+.event-poster-details>p:last-child { font-size:.875rem; color:var(--soft); }

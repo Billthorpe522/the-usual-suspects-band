@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Usual Suspects//Show Calendar//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:usual-suspects-20261205@playtheusualsuspects.com
+DTSTAMP:20261118T180000Z
+DTSTART:20261206T020000Z
+DTEND:20261206T050000Z
+SUMMARY:The Usual Suspects - Tru Country New Lenox
+LOCATION:Tru Country Bar & Grill\, 222 W Maple St\, New Lenox IL
+DESCRIPTION:Live music Saturday December 5\, 8-11 PM Central.
+URL:https://playtheusualsuspects.com/#show-5
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR

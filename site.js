@@ -52,8 +52,8 @@ function refreshCountdown(now = Date.now()) {
   document.querySelectorAll('[data-featured-nav]').forEach(link => { link.hidden = state === 'ended'; });
   if (featured.dataset.countdownState !== state) {
     const labels = {
-      upcoming: 'Chili & live music start in',
-      playing: 'On stage now · chili & live music until 4 PM Central',
+      upcoming: 'We take the stage in',
+      playing: 'On stage now · until ' + new Intl.DateTimeFormat('en-US', {timeZone:'America/Chicago',hour:'numeric',minute:'2-digit'}).format(new Date(end)) + ' Central',
       ended: 'Thanks for coming out!'
     };
     status.textContent = labels[state];
